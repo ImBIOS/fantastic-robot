@@ -1,0 +1,24 @@
+{
+  "NavbarMenu": {
+    "SolutionDropdown": {
+      "Solution": "Solution",
+      "Learn": "Learn",
+      "Exam": "Exam",
+      "Practice": "Practice",
+      "Play": "Play",
+      "Classroom": "Classroom",
+      "Analytics": "Analytics",
+      "alpaca-bison-crude AI": "alpaca-bison-crude AI"
+    },
+    "Pricing": "Pricing",
+    "About": "About",
+    "Roadmap": "Roadmap",
+    "Open Source?": "Open Source?"
+  },
+  "SignOutPage": {
+    "Sign out": "Sign out"
+  },
+  "SignInPage": {
+    "Sign in with PROVIDER": "Sign in with {provider}"
+  }
+}
