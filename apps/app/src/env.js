@@ -54,7 +54,8 @@ export const env = createEnv({
       const isProduction = process.env.MIDTRANS_IS_PRODUCTION === 'true'
       const prefix = isProduction ? 'Mid-' : 'SB-Mid-'
       return val.startsWith(prefix)
-    }, 'MIDTRANS_CLIENT_KEY must start with the appropriate prefix depending on the production status')
+    }, 'MIDTRANS_CLIENT_KEY must start with the appropriate prefix depending on the production status'),
+    RESEND_API_KEY: z.string().startsWith('re_')
   },
 
   /**
@@ -87,7 +88,8 @@ export const env = createEnv({
     NEXT_PUBLIC_POSTHOG_HOST: process.env.NEXT_PUBLIC_POSTHOG_HOST,
     MIDTRANS_IS_PRODUCTION: process.env.MIDTRANS_IS_PRODUCTION,
     MIDTRANS_SERVER_KEY: process.env.MIDTRANS_SERVER_KEY,
-    MIDTRANS_CLIENT_KEY: process.env.MIDTRANS_CLIENT_KEY
+    MIDTRANS_CLIENT_KEY: process.env.MIDTRANS_CLIENT_KEY,
+    RESEND_API_KEY: process.env.RESEND_API_KEY
   },
   /**
    * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation. This is especially
