@@ -1,5 +1,5 @@
 {
-  "name": "my-turborepo",
+  "name": "fantastic-robot",
   "private": true,
   "scripts": {
     "prepare": "husky install",
