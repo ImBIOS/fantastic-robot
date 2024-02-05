@@ -1,11 +1,26 @@
 {
-  "name": "alpaca-bison-crude",
-  "module": "index.ts",
-  "type": "module",
-  "devDependencies": {
-    "@types/bun": "latest"
+  "name": "my-turborepo",
+  "private": true,
+  "scripts": {
+    "prepare": "husky install",
+    "build": "turbo build",
+    "dev": "turbo dev",
+    "lint": "turbo lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
-  "peerDependencies": {
-    "typescript": "^5.0.0"
-  }
+  "devDependencies": {
+    "@repo/eslint-config": "*",
+    "@repo/typescript-config": "*",
+    "husky": "^9.0.10",
+    "prettier": "^3.1.1",
+    "turbo": "latest"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "packageManager": "bun@1.0.26",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ]
 }
