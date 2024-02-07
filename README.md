@@ -1,24 +1,33 @@
-# Turborepo starter
+# fantastic-
 
-This is an official starter Turborepo.
-
-## Using this example
-
-Run the following command:
-
-```sh
-npx create-turbo@latest
-```
+This is a KISS (Keep It Simple Stup!d) [@ImBIOS](https://github.com/ImBIOS)'s SaaS Boilerplate.
 
 ## What's inside?
 
-This Turborepo includes the following packages/apps:
+Features:
 
-### Apps and Packages
+- [ ] Homepage/Landing Page
+- [ ] Authentication
+- [ ] Dashboard
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
+Tech Stacks:
+
+- [x] [Next.js](https://nextjs.org/) — React framework
+- [x] [TypeScript](https://www.typescriptlang.org/) — Typed superset of JavaScript
+- [x] [Tailwind CSS](https://tailwindcss.com/) — Utility-first CSS framework
+- [x] [Auth.js](https://authjs.dev/) - Authentication
+- [ ] TBD LemonSqueezy or Midtrans
+- [ ] [Resend](https://resend.com/) — Transactional email service
+- [ ] [Turborepo](https://turborepo.org) — High-performance build system for monorepos
+- [ ] [Syncpack](https://github.com/JamieMason/syncpack) — Ensures consistent dependencies within monorepos
+- [ ] [Posthog](https://posthog.com/) — Product analytics
+- [ ] [Sentry](https://sentry.io/) — Error tracking
+- [ ] [Vercel](https://vercel.com/) — Hosting and serverless functions
+- [ ] [Featurebase](https://www.featurebase.app/) — Product Feedback & Changelog Platform for Fast-Growing Startups
+
+### Packages
+
+- `@repo/ui`: a stub React component library shared by applications
 - `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
 - `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
 
