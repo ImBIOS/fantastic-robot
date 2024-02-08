@@ -3,7 +3,7 @@ import NextAuth, { type DefaultSession } from 'next-auth';
 import Discord, { type DiscordProfile } from 'next-auth/providers/discord';
 import Google from 'next-auth/providers/google';
 
-import { db } from './db/index';
+import { db } from './db';
 import { mysqlTable, type UserRole } from './db/schema';
 
 declare module 'next-auth' {
