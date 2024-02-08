@@ -11,7 +11,7 @@ import { initTRPC, TRPCError } from '@trpc/server';
 import superjson from 'superjson';
 import { ZodError } from 'zod';
 
-import { ratelimit } from '~/lib/ratelimit';
+import { trpcRatelimitCheck } from '~/lib/ratelimit';
 import { auth } from '~/server/auth';
 import { db } from '~/server/db';
 
@@ -71,17 +71,6 @@ const t = initTRPC.context<typeof createTRPCContext>().create({
  * @see https://trpc.io/docs/router
  */
 export const createTRPCRouter = t.router;
-
-const trpcRatelimitCheck = async (identifier: string | null | undefined) => {
-  const { success } = await ratelimit.limit(identifier ?? 'anonymous');
-
-  if (!success) {
-    throw new TRPCError({
-      code: 'TOO_MANY_REQUESTS',
-      message: 'Kamu terlalu cepat, coba lagi nanti',
-    });
-  }
-};
 
 /** Reusable middleware to implement rate limiting. */
 const rateLimiter = t.middleware(async ({ ctx, next }) => {

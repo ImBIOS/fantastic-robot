@@ -36,6 +36,8 @@ export const env = createEnv({
     AUTH_DISCORD_SECRET: z.string(),
     // AUTH_GOOGLE_ID: z.string().endsWith('.apps.googleusercontent.com'),
     // AUTH_GOOGLE_SECRET: z.string().startsWith('GOCSPX-'),
+    // BOXYHQ_SAML_JACKSON_URL: z.string().url(),
+    // BOXYHQ_PRODUCT_ID: z.string().startsWith('boxy_prd_'),
     UPSTASH_REDIS_REST_URL: z
       .string()
       .url()
@@ -81,6 +83,8 @@ export const env = createEnv({
     AUTH_DISCORD_SECRET: process.env.AUTH_DISCORD_SECRET,
     // AUTH_GOOGLE_ID: process.env.AUTH_GOOGLE_ID,
     // AUTH_GOOGLE_SECRET: process.env.AUTH_GOOGLE_SECRET,
+    // BOXYHQ_SAML_JACKSON_URL: process.env.BOXYHQ_SAML_JACKSON_URL,
+    // BOXYHQ_PRODUCT_ID: process.env.BOXYHQ_PRODUCT_ID,
     AUTH_URL: process.env.AUTH_URL,
     UPSTASH_REDIS_REST_URL: process.env.UPSTASH_REDIS_REST_URL,
     UPSTASH_REDIS_REST_TOKEN: process.env.UPSTASH_REDIS_REST_TOKEN,

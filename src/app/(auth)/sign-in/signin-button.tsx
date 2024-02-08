@@ -7,7 +7,7 @@ import { signIn } from 'next-auth/react';
 import { cn } from '~/lib/utils';
 import { Button, type ButtonProps } from '~/components/ui/button';
 
-import { IconSpinner } from './icons';
+import { IconSpinner } from '../../../components/icons';
 
 type SigninButtonProps = ButtonProps & {
   text?: string;
@@ -33,6 +33,7 @@ export function SigninButton({
         await signIn(provider, { callbackUrl: `/` });
       }}
       disabled={isLoading}
+      aria-disabled={isLoading}
       className={cn(className)}
       {...props}
     >

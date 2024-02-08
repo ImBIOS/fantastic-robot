@@ -1,9 +1,6 @@
 import { Resend } from 'resend';
 
-import {
-  EmailTemplateReact,
-  EmailTemplateText,
-} from '~/components/email-template';
+import { EmailTemplateReact, EmailTemplateText } from '~/emails/email-template';
 import { env } from '~/env';
 
 const resend = new Resend(env.RESEND_API_KEY);
