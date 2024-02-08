@@ -2,12 +2,12 @@
 
 import { useState, type SVGProps } from 'react';
 import { type OAuthProviderType } from 'next-auth/providers';
-import { signIn } from 'next-auth/react';
 
 import { cn } from '~/lib/utils';
 import { Button, type ButtonProps } from '~/components/ui/button';
 
 import { IconSpinner } from '../../../components/icons';
+import { signInAction } from './actions';
 
 type SigninButtonProps = ButtonProps & {
   text?: string;
@@ -30,7 +30,7 @@ export function SigninButton({
       onClick={async () => {
         setIsLoading(true);
         // next-auth signIn() function doesn't work yet at Edge Runtime due to usage of BroadcastChannel
-        await signIn(provider, { callbackUrl: `/` });
+        await signInAction(provider);
       }}
       disabled={isLoading}
       aria-disabled={isLoading}

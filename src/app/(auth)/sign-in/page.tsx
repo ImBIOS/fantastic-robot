@@ -4,10 +4,6 @@ import { IconDiscord, IconGoogle } from '~/components/icons';
 import { SigninButton } from '~/app/(auth)/sign-in/signin-button';
 import { auth } from '~/server/auth';
 
-const BoxyLogin = async () => {
-  'use server';
-};
-
 export default async function SignInPage() {
   const session = await auth();
   // redirect to home if user is already logged in
@@ -26,11 +22,11 @@ export default async function SignInPage() {
         icon={IconGoogle}
         provider="google"
       />
-      <SigninButton
+      {/* <SigninButton
         text="Sign in with SAML SSO"
         provider="boxyhq-saml"
         onClick={async () => {}}
-      />
+      /> */}
     </section>
   );
 }

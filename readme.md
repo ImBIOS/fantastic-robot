@@ -11,13 +11,14 @@ Tech Stacks:
 - [ ] [LemonSqueezy](https://lemonsqueezy.com/) - Payments, tax & subscriptions for software companies
 - [x] [Resend](https://resend.com/) — Transactional email service
 - [x] [Posthog](https://posthog.com/) — Product analytics
-- [ ] [Sentry](https://sentry.io/) — Error tracking
+- [x] [Sentry](https://sentry.io/) — Error tracking
 - [x] [Featurebase](https://www.featurebase.app/) — Product Feedback & Changelog Platform for Fast-Growing Startups
 - [x] [Drizzle ORM](https://orm.drizzle.team/) - ORM for TypeScript
 - [x] [tRPC](https://trpc.io/) - TypeScript RPC
 - [x] [PlanetScale](https://planetscale.com/) - Database
 - [x] [Upstash](https://upstash.com/) - Redis and Queues
 - [x] [ShadcnUI](https://ui.shadcn.com/) - UI Components
+- [ ] [Zustand](https://github.com/pmndrs/zustand) - State Management
 
 TBD Tech Stack:
 

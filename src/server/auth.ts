@@ -53,6 +53,8 @@ export const {
     //   }),
     // }),
   ],
+  // TODO: Remove this when the types are fixed
+  // @ts-expect-error - The types are wrong @see https://github.com/nextauthjs/next-auth/issues/9493#issuecomment-1913353082
   adapter: DrizzleAdapter(db, mysqlTable),
   callbacks: {
     jwt({ token, profile, user }) {

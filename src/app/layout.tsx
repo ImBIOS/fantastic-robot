@@ -8,6 +8,7 @@ import { Toaster } from 'react-hot-toast';
 import { inter } from '~/lib/fonts';
 import { cn } from '~/lib/utils';
 import { TailwindIndicator } from '~/components/tailwind-indicator';
+import { auth } from '~/server/auth';
 
 import Header from './_components/header';
 import Providers from './_components/providers';
@@ -43,11 +44,12 @@ export const metadata: Metadata = {
   manifest: '/manifest.webmanifest',
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const session = await auth();
   return (
     <html lang="en">
       <body
@@ -56,7 +58,7 @@ export default function RootLayout({
           inter.variable,
         )}
       >
-        <Providers>
+        <Providers session={session}>
           <NextTopLoader color="#df4224" showSpinner={false} />
           <Header />
           {children}

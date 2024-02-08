@@ -58,6 +58,12 @@ export const env = createEnv({
       return val.startsWith(prefix);
     }, 'MIDTRANS_CLIENT_KEY must start with the appropriate prefix depending on the production status'),
     RESEND_API_KEY: z.string().startsWith('re_'),
+    SENTRY_AUTH_TOKEN: z.string().startsWith('sntrys_'),
+    SENTRY_DSN: z.string().url(),
+    SENTRY_ORG: z.string(),
+    SENTRY_PROJECT: z.string(),
+    // will be the last few digits in your Sentry DSN
+    SENTRY_PROJECT_ID: z.coerce.number(),
   },
 
   /**
@@ -94,6 +100,11 @@ export const env = createEnv({
     MIDTRANS_SERVER_KEY: process.env.MIDTRANS_SERVER_KEY,
     MIDTRANS_CLIENT_KEY: process.env.MIDTRANS_CLIENT_KEY,
     RESEND_API_KEY: process.env.RESEND_API_KEY,
+    SENTRY_AUTH_TOKEN: process.env.SENTRY_AUTH_TOKEN,
+    SENTRY_DSN: process.env.SENTRY_DSN,
+    SENTRY_ORG: process.env.SENTRY_ORG,
+    SENTRY_PROJECT: process.env.SENTRY_PROJECT,
+    SENTRY_PROJECT_ID: process.env.SENTRY_DSN?.split('/').pop() ?? '',
   },
   /**
    * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation. This is especially
