@@ -1,8 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link.js';
-import { useRouter } from 'next/navigation.js';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { gitmojis } from 'gitmojis';
 
 import useGitmojiQuiz from '~/lib/hooks/use-gitmoji-quiz';

@@ -1,6 +1,6 @@
 'use client';
 
-import { unstable_noStore } from 'next/cache.js';
+import { unstable_noStore } from 'next/cache';
 
 import { api } from '~/trpc/react';
 
