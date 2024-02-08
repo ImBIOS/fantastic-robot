@@ -105,6 +105,9 @@ export const env = createEnv({
     SENTRY_ORG: process.env.SENTRY_ORG,
     SENTRY_PROJECT: process.env.SENTRY_PROJECT,
     SENTRY_PROJECT_ID: process.env.SENTRY_DSN?.split('/').pop() ?? '',
+    // LEMONSQUEEZY_API_KEY: process.env.LEMONSQUEEZY_API_KEY,
+    // LEMONSQUEEZY_STORE_ID: process.env.LEMONSQUEEZY_STORE_ID,
+    // LEMONSQUEEZY_WEBHOOK_SECRET: process.env.LEMONSQUEEZY_WEBHOOK_SECRET,
   },
   /**
    * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation. This is especially

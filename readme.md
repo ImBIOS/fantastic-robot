@@ -8,7 +8,6 @@ Tech Stacks:
 - [x] [TypeScript](https://www.typescriptlang.org/) — Typed superset of JavaScript
 - [x] [Tailwind CSS](https://tailwindcss.com/) — Utility-first CSS framework
 - [x] [Auth.js](https://authjs.dev/) - Authentication
-- [ ] [LemonSqueezy](https://lemonsqueezy.com/) - Payments, tax & subscriptions for software companies
 - [x] [Resend](https://resend.com/) — Transactional email service
 - [x] [Posthog](https://posthog.com/) — Product analytics
 - [x] [Sentry](https://sentry.io/) — Error tracking
@@ -25,3 +24,4 @@ TBD Tech Stack:
 - [ ] [BoxyHQ](https://www.boxyhq.com/) — Enterprise SSO
 - [ ] [Tinybird](https://www.tinybird.co/) - Real-time data processing
 - [ ] [Tremor](https://www.tremor.so/) - Charts
+- [ ] [LemonSqueezy](https://lemonsqueezy.com/) - Payments, tax & subscriptions for software companies
