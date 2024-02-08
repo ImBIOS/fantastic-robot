@@ -1,4 +1,4 @@
-import { NextResponse, type NextRequest } from 'next/server.js';
+import { NextResponse, type NextRequest } from 'next/server';
 import { Snap } from 'midtrans-node-client/dist/lib/snap';
 
 import { env } from '~/env';
