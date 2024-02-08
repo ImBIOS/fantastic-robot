@@ -1,13 +1,13 @@
 import { eq } from 'drizzle-orm';
 import { z } from 'zod';
 
-import { ratelimitCheck } from '~/lib/ratelimit';
+import { apiRatelimitCheck } from '~/lib/ratelimit';
 import { createTRPCRouter, protectedProcedure } from '~/server/api/trpc';
 import { points } from '~/server/db/schema';
 
 export const pointsRouter = createTRPCRouter({
   get: protectedProcedure.query(async ({ ctx }) => {
-    await ratelimitCheck(ctx.session.user.id);
+    await apiRatelimitCheck(ctx.session.user.id);
     // api.tokens.readTotal.revalidate()
     const currentUserPoints = await ctx.db.query.points.findFirst({
       where: (fields, operator) =>
@@ -32,7 +32,7 @@ export const pointsRouter = createTRPCRouter({
   incrementBy: protectedProcedure
     .input(z.number())
     .mutation(async ({ ctx, input }) => {
-      await ratelimitCheck(ctx.session.user.id);
+      await apiRatelimitCheck(ctx.session.user.id);
       // api.tokens.readTotal.revalidate()
       const currentUserPoints = await ctx.db.query.points.findFirst({
         where: (fields, operator) =>
@@ -62,7 +62,7 @@ export const pointsRouter = createTRPCRouter({
   decrementBy: protectedProcedure
     .input(z.number())
     .mutation(async ({ ctx, input }) => {
-      await ratelimitCheck(ctx.session.user.id);
+      await apiRatelimitCheck(ctx.session.user.id);
       // api.tokens.readTotal.revalidate()
       const currentUserPoints = await ctx.db.query.points.findFirst({
         where: (fields, operator) =>

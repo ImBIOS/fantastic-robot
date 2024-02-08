@@ -2,14 +2,14 @@ import { TRPCError } from '@trpc/server';
 import { eq } from 'drizzle-orm';
 import { z } from 'zod';
 
-import { ratelimitCheck } from '~/lib/ratelimit';
+import { apiRatelimitCheck } from '~/lib/ratelimit';
 import { createTRPCRouter, protectedProcedure } from '~/server/api/trpc';
 import { users } from '~/server/db/schema';
 import { api } from '~/trpc/server';
 
 export const tokensRouter = createTRPCRouter({
   readTotal: protectedProcedure.query(async ({ ctx }) => {
-    await ratelimitCheck(ctx.session.user.id);
+    await apiRatelimitCheck(ctx.session.user.id);
 
     const user = await ctx.db.query.users.findFirst({
       where: eq(users.id, ctx.session.user.id ?? ''),
@@ -24,7 +24,7 @@ export const tokensRouter = createTRPCRouter({
   decrease: protectedProcedure
     .input(z.number())
     .mutation(async ({ ctx, input }) => {
-      await ratelimitCheck(ctx.session.user.id);
+      await apiRatelimitCheck(ctx.session.user.id);
 
       if (typeof input === 'undefined') {
         throw new TRPCError({
@@ -66,7 +66,7 @@ export const tokensRouter = createTRPCRouter({
     }),
 
   testRevalidate: protectedProcedure.query(async ({ ctx }) => {
-    await ratelimitCheck(ctx.session.user.id);
+    await apiRatelimitCheck(ctx.session.user.id);
 
     await api.tokens.decrease.mutate(1);
 

@@ -36,6 +36,8 @@ export const env = createEnv({
     AUTH_DISCORD_SECRET: z.string(),
     // AUTH_GOOGLE_ID: z.string().endsWith('.apps.googleusercontent.com'),
     // AUTH_GOOGLE_SECRET: z.string().startsWith('GOCSPX-'),
+    // BOXYHQ_SAML_JACKSON_URL: z.string().url(),
+    // BOXYHQ_PRODUCT_ID: z.string().startsWith('boxy_prd_'),
     UPSTASH_REDIS_REST_URL: z
       .string()
       .url()
@@ -56,6 +58,12 @@ export const env = createEnv({
       return val.startsWith(prefix);
     }, 'MIDTRANS_CLIENT_KEY must start with the appropriate prefix depending on the production status'),
     RESEND_API_KEY: z.string().startsWith('re_'),
+    SENTRY_AUTH_TOKEN: z.string().startsWith('sntrys_'),
+    SENTRY_DSN: z.string().url(),
+    SENTRY_ORG: z.string(),
+    SENTRY_PROJECT: z.string(),
+    // will be the last few digits in your Sentry DSN
+    SENTRY_PROJECT_ID: z.coerce.number(),
   },
 
   /**
@@ -81,6 +89,8 @@ export const env = createEnv({
     AUTH_DISCORD_SECRET: process.env.AUTH_DISCORD_SECRET,
     // AUTH_GOOGLE_ID: process.env.AUTH_GOOGLE_ID,
     // AUTH_GOOGLE_SECRET: process.env.AUTH_GOOGLE_SECRET,
+    // BOXYHQ_SAML_JACKSON_URL: process.env.BOXYHQ_SAML_JACKSON_URL,
+    // BOXYHQ_PRODUCT_ID: process.env.BOXYHQ_PRODUCT_ID,
     AUTH_URL: process.env.AUTH_URL,
     UPSTASH_REDIS_REST_URL: process.env.UPSTASH_REDIS_REST_URL,
     UPSTASH_REDIS_REST_TOKEN: process.env.UPSTASH_REDIS_REST_TOKEN,
@@ -90,6 +100,14 @@ export const env = createEnv({
     MIDTRANS_SERVER_KEY: process.env.MIDTRANS_SERVER_KEY,
     MIDTRANS_CLIENT_KEY: process.env.MIDTRANS_CLIENT_KEY,
     RESEND_API_KEY: process.env.RESEND_API_KEY,
+    SENTRY_AUTH_TOKEN: process.env.SENTRY_AUTH_TOKEN,
+    SENTRY_DSN: process.env.SENTRY_DSN,
+    SENTRY_ORG: process.env.SENTRY_ORG,
+    SENTRY_PROJECT: process.env.SENTRY_PROJECT,
+    SENTRY_PROJECT_ID: process.env.SENTRY_DSN?.split('/').pop() ?? '',
+    // LEMONSQUEEZY_API_KEY: process.env.LEMONSQUEEZY_API_KEY,
+    // LEMONSQUEEZY_STORE_ID: process.env.LEMONSQUEEZY_STORE_ID,
+    // LEMONSQUEEZY_WEBHOOK_SECRET: process.env.LEMONSQUEEZY_WEBHOOK_SECRET,
   },
   /**
    * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation. This is especially

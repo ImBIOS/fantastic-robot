@@ -1,7 +1,7 @@
 import { redirect } from 'next/navigation';
 
 import { IconDiscord, IconGoogle } from '~/components/icons';
-import { SigninButton } from '~/components/signin-button';
+import { SigninButton } from '~/app/(auth)/sign-in/signin-button';
 import { auth } from '~/server/auth';
 
 export default async function SignInPage() {
@@ -22,6 +22,11 @@ export default async function SignInPage() {
         icon={IconGoogle}
         provider="google"
       />
+      {/* <SigninButton
+        text="Sign in with SAML SSO"
+        provider="boxyhq-saml"
+        onClick={async () => {}}
+      /> */}
     </section>
   );
 }

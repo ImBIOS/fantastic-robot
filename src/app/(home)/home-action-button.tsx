@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 import { Button } from '~/components/ui/button';
 import { IconDiscord } from '~/components/icons';
-import { SigninButton } from '~/components/signin-button';
+import { SigninButton } from '~/app/(auth)/sign-in/signin-button';
 import { auth } from '~/server/auth';
 
 export const HomeActionButton = async () => {
