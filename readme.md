@@ -18,7 +18,7 @@ Tech Stacks:
 - [x] [PlanetScale](https://planetscale.com/) - Database
 - [x] [Upstash](https://upstash.com/) - Redis and Queues
 - [x] [ShadcnUI](https://ui.shadcn.com/) - UI Components
-- [ ] [Zustand](https://github.com/pmndrs/zustand) - State Management
+- [x] [Zustand](https://github.com/pmndrs/zustand) - State Management
 
 TBD Tech Stack:
 
