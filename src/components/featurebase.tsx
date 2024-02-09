@@ -1,32 +1,32 @@
-'use client'
+'use client';
 
-import { useEffect } from 'react'
-import Script from 'next/script'
-import { type Session } from 'next-auth/types'
+import { useEffect } from 'react';
+import Script from 'next/script';
+import { type Session } from 'next-auth';
 
 type Props = {
-  session: Session | null
-  children: React.ReactNode
-}
+  session: Session | null;
+  children: React.ReactNode;
+};
 
 export const Featurebase = ({ children }: Props) => {
   useEffect(() => {
     const win = window as typeof window & {
       Featurebase: {
-        q?: unknown[]
+        q?: unknown[];
         (
           action: 'identify',
           data: unknown,
-          callback: (err?: Error) => void
-        ): void
-      }
-    }
+          callback: (err?: Error) => void,
+        ): void;
+      };
+    };
 
     if (typeof win.Featurebase !== 'function') {
       win.Featurebase = function () {
         // eslint-disable-next-line prefer-rest-params
-        ;(win.Featurebase.q = win.Featurebase.q ?? []).push(arguments)
-      }
+        (win.Featurebase.q = win.Featurebase.q ?? []).push(arguments);
+      };
     }
     // TODO: Need paid plan for this to work
     // win.Featurebase(
@@ -53,12 +53,12 @@ export const Featurebase = ({ children }: Props) => {
     //     }
     //   }
     // )
-  }, [])
+  }, []);
 
   return (
     <>
       <Script src="https://do.featurebase.app/js/sdk.js" id="featurebase-sdk" />
       {children}
     </>
-  )
-}
+  );
+};

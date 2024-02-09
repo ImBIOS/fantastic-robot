@@ -2,6 +2,13 @@
 
 Gitmoji Academy project
 
+Features:
+
+- [🏃‍♂️] Product
+- [ ] Pricing
+- [ ] User account
+- [ ] Landing page
+
 Tech Stacks:
 
 - [x] [Next.js](https://nextjs.org/) — React framework

@@ -75,9 +75,5 @@ export default {
       },
     },
   },
-  plugins: [
-    require('tailwindcss-animated'),
-    require('@headlessui/tailwindcss'),
-    require('@tailwindcss/forms'),
-  ],
+  plugins: [require('tailwindcss-animated'), require('@tailwindcss/forms')],
 } satisfies Config;
