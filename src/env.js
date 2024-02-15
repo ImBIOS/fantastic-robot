@@ -57,7 +57,10 @@ export const env = createEnv({
     RESEND_API_KEY: z.string().startsWith('re_'),
     SENTRY_AUTH_TOKEN: z.string().startsWith('sntrys_'),
     SENTRY_PROJECT: z.string(),
-    ADMIN_EMAILS: z.string().array(),
+    ADMIN_EMAILS: z
+      .string()
+      .transform((val) => val.split(','))
+      .pipe(z.array(z.string().email())),
   },
 
   /**

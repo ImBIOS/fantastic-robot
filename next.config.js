@@ -20,8 +20,8 @@ const nextConfig = {
     // ppr: true,
     // typedRoutes: true,
     nextScriptWorkers: true,
-    useDeploymentId: true,
-    useDeploymentIdServerActions: true,
+    // useDeploymentId: true,
+    // useDeploymentIdServerActions: true,
   },
   images: {
     remotePatterns: [
