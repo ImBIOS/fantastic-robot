@@ -10,14 +10,18 @@ await import('./src/env.js');
 
 /** @type {import("next").NextConfig} */
 const nextConfig = {
+  reactStrictMode: false,
   logging: {
     fetches: {
       fullUrl: true,
     },
   },
   experimental: {
-    typedRoutes: true,
+    // ppr: true,
+    // typedRoutes: true,
     nextScriptWorkers: true,
+    useDeploymentId: true,
+    useDeploymentIdServerActions: true,
   },
   images: {
     remotePatterns: [
@@ -57,7 +61,7 @@ const config = withSentryConfig(
 
     // Suppresses source map uploading logs during build
     silent: true,
-    org: env.SENTRY_ORG,
+    org: env.NEXT_PUBLIC_SENTRY_ORG,
     project: env.SENTRY_PROJECT,
   },
   {

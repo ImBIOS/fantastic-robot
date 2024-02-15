@@ -1,8 +1,9 @@
 import { redirect } from 'next/navigation';
 
 import { IconDiscord, IconGoogle } from '~/components/icons';
-import { SigninButton } from '~/app/(auth)/sign-in/signin-button';
 import { auth } from '~/server/auth';
+
+import { SigninButton } from './signin-button';
 
 export default async function SignInPage() {
   const session = await auth();

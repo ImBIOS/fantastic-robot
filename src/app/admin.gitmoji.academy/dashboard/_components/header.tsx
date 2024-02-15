@@ -4,8 +4,8 @@ import { BoxIcon } from '@radix-ui/react-icons';
 
 import { cn } from '~/lib/utils';
 import ThemeSelector from '~/components/theme-selector';
+import HeaderActionButton from '~/app/_components/header-action-button';
 
-import HeaderActionButton from '../../../../_components/header-action-button';
 import MobileSidebar from './mobile-sidebar';
 
 const Header = () => {

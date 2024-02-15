@@ -1,8 +1,7 @@
-import { relations, sql, type InferSelectModel } from 'drizzle-orm';
+import { relations, sql } from 'drizzle-orm';
 import {
   index,
   int,
-  mysqlEnum,
   mysqlTableCreator,
   primaryKey,
   text,
@@ -21,20 +20,6 @@ export const mysqlTable = mysqlTableCreator(
   (name) => `fantastic-robot_${name}`,
 );
 
-export const points = mysqlTable('point', {
-  id: varchar('id', { length: 255 }).notNull().primaryKey(),
-  exp: int('exp').default(0).notNull(),
-  userId: varchar('userId', { length: 255 }),
-  createdAt: timestamp('createdAt')
-    .default(sql`CURRENT_TIMESTAMP`)
-    .notNull(),
-  updatedAt: timestamp('updatedAt').onUpdateNow().defaultNow().notNull(),
-});
-
-export const pointsRelations = relations(points, ({ one }) => ({
-  users: one(users, { fields: [points.userId], references: [users.id] }),
-}));
-
 // SECTION - Auth.js START
 export const users = mysqlTable('user', {
   id: varchar('id', { length: 255 }).notNull().primaryKey(),
@@ -45,12 +30,10 @@ export const users = mysqlTable('user', {
     fsp: 3,
   }).default(sql`CURRENT_TIMESTAMP(3)`),
   image: varchar('image', { length: 255 }),
-  // NOTE Added
-  role: mysqlEnum('role', ['user', 'admin']).default('user'),
-  token: int('token').default(120),
-});
 
-export type UserRole = InferSelectModel<typeof users>['role'];
+  // NOTE Added
+  createdAt: timestamp('createdAt', { mode: 'date' }).defaultNow().notNull(),
+});
 
 export const usersRelations = relations(users, ({ many }) => ({
   accounts: many(accounts),
@@ -113,3 +96,15 @@ export const verificationTokens = mysqlTable(
   }),
 );
 // SECTION - Auth.js END
+
+export const points = mysqlTable('point', {
+  id: varchar('id', { length: 255 }).notNull().primaryKey(),
+  exp: int('exp').default(0).notNull(),
+  userId: varchar('userId', { length: 255 }),
+  createdAt: timestamp('createdAt').defaultNow().notNull(),
+  updatedAt: timestamp('updatedAt').onUpdateNow().defaultNow().notNull(),
+});
+
+export const pointsRelations = relations(points, ({ one }) => ({
+  users: one(users, { fields: [points.userId], references: [users.id] }),
+}));

@@ -5,8 +5,8 @@ import { type OAuthProviderType } from 'next-auth/providers';
 
 import { cn } from '~/lib/utils';
 import { Button, type ButtonProps } from '~/components/ui/button';
+import { IconSpinner } from '~/components/icons';
 
-import { IconSpinner } from '../../../components/icons';
 import { signInAction } from './actions';
 
 type SigninButtonProps = ButtonProps & {

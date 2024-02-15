@@ -44,26 +44,20 @@ export const env = createEnv({
       .startsWith('https://')
       .endsWith('.upstash.io'),
     UPSTASH_REDIS_REST_TOKEN: z.string(),
-    MIDTRANS_IS_PRODUCTION: z
-      .union([z.literal('true'), z.literal('false')])
-      .transform((str) => str === 'true'),
     MIDTRANS_SERVER_KEY: z.string().refine((val) => {
-      const isProduction = process.env.MIDTRANS_IS_PRODUCTION === 'true';
+      const isProduction = process.env.VERCEL_ENV === 'production';
       const prefix = isProduction ? 'Mid-server-' : 'SB-Mid-server-';
       return val.startsWith(prefix);
     }, 'MIDTRANS_SERVER_KEY must start with the appropriate prefix depending on the production status'),
     MIDTRANS_CLIENT_KEY: z.string().refine((val) => {
-      const isProduction = process.env.MIDTRANS_IS_PRODUCTION === 'true';
+      const isProduction = process.env.VERCEL_ENV === 'production';
       const prefix = isProduction ? 'Mid-' : 'SB-Mid-';
       return val.startsWith(prefix);
     }, 'MIDTRANS_CLIENT_KEY must start with the appropriate prefix depending on the production status'),
     RESEND_API_KEY: z.string().startsWith('re_'),
     SENTRY_AUTH_TOKEN: z.string().startsWith('sntrys_'),
-    SENTRY_DSN: z.string().url(),
-    SENTRY_ORG: z.string(),
     SENTRY_PROJECT: z.string(),
-    // will be the last few digits in your Sentry DSN
-    SENTRY_PROJECT_ID: z.coerce.number(),
+    ADMIN_EMAILS: z.string().array(),
   },
 
   /**
@@ -74,6 +68,10 @@ export const env = createEnv({
   client: {
     NEXT_PUBLIC_POSTHOG_KEY: z.string().startsWith('phc_'),
     NEXT_PUBLIC_POSTHOG_HOST: z.string().url(),
+    NEXT_PUBLIC_SENTRY_DSN: z.string().url(),
+    NEXT_PUBLIC_SENTRY_ORG: z.string(),
+    NEXT_PUBLIC_APP_SHORT_DOMAIN: z.string().includes('.'),
+    NEXT_PUBLIC_APP_DOMAIN: z.string(),
   },
 
   /**
@@ -96,18 +94,19 @@ export const env = createEnv({
     UPSTASH_REDIS_REST_TOKEN: process.env.UPSTASH_REDIS_REST_TOKEN,
     NEXT_PUBLIC_POSTHOG_KEY: process.env.NEXT_PUBLIC_POSTHOG_KEY,
     NEXT_PUBLIC_POSTHOG_HOST: process.env.NEXT_PUBLIC_POSTHOG_HOST,
-    MIDTRANS_IS_PRODUCTION: process.env.MIDTRANS_IS_PRODUCTION,
     MIDTRANS_SERVER_KEY: process.env.MIDTRANS_SERVER_KEY,
     MIDTRANS_CLIENT_KEY: process.env.MIDTRANS_CLIENT_KEY,
     RESEND_API_KEY: process.env.RESEND_API_KEY,
     SENTRY_AUTH_TOKEN: process.env.SENTRY_AUTH_TOKEN,
-    SENTRY_DSN: process.env.SENTRY_DSN,
-    SENTRY_ORG: process.env.SENTRY_ORG,
+    NEXT_PUBLIC_SENTRY_DSN: process.env.NEXT_PUBLIC_SENTRY_DSN,
+    NEXT_PUBLIC_SENTRY_ORG: process.env.NEXT_PUBLIC_SENTRY_ORG,
     SENTRY_PROJECT: process.env.SENTRY_PROJECT,
-    SENTRY_PROJECT_ID: process.env.SENTRY_DSN?.split('/').pop() ?? '',
     // LEMONSQUEEZY_API_KEY: process.env.LEMONSQUEEZY_API_KEY,
     // LEMONSQUEEZY_STORE_ID: process.env.LEMONSQUEEZY_STORE_ID,
     // LEMONSQUEEZY_WEBHOOK_SECRET: process.env.LEMONSQUEEZY_WEBHOOK_SECRET,
+    NEXT_PUBLIC_APP_SHORT_DOMAIN: process.env.NEXT_PUBLIC_APP_SHORT_DOMAIN,
+    ADMIN_EMAILS: process.env.ADMIN_EMAILS,
+    NEXT_PUBLIC_APP_DOMAIN: process.env.NEXT_PUBLIC_APP_DOMAIN,
   },
   /**
    * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation. This is especially

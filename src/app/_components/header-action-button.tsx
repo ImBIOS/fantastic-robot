@@ -1,7 +1,7 @@
 import { Button } from '~/components/ui/button';
 import { auth, signIn } from '~/server/auth';
 
-import { UserNav } from '../(rbac)/(admin)/dashboard/_components/user-nav';
+import { UserNav } from '../admin.gitmoji.academy/dashboard/_components/user-nav';
 
 const HeaderActionButton = async () => {
   const session = await auth();

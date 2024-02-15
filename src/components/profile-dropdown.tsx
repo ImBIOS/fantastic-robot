@@ -1,4 +1,4 @@
-import { UserAvatar } from '~/app/(rbac)/(admin)/dashboard/_components/user-avatar';
+import { UserAvatar } from '~/app/admin.gitmoji.academy/dashboard/_components/user-avatar';
 import { signOut } from '~/server/auth';
 
 import SignoutButton from './signout-button';

@@ -1,9 +1,9 @@
 import { DrizzleAdapter } from '@auth/drizzle-adapter';
 import NextAuth, { type DefaultSession } from 'next-auth';
-import Discord, { type DiscordProfile } from 'next-auth/providers/discord';
+import Discord from 'next-auth/providers/discord';
 
 import { db } from './db';
-import { mysqlTable, type UserRole } from './db/schema';
+import { mysqlTable } from './db/schema';
 
 // const samlLoginUrl = env.BOXYHQ_SAML_JACKSON_URL ?? 'https://sso.eu.boxyhq.com';
 
@@ -12,14 +12,9 @@ declare module 'next-auth' {
     user: {
       /** The user's id. */
       id: string;
-      /** The user's role. */
-      role: UserRole;
+      /** The user's account creation time. */
+      createdAt: string;
     } & DefaultSession['user'];
-  }
-
-  interface User {
-    /** The user's role. */
-    role: UserRole;
   }
 }
 
@@ -31,43 +26,29 @@ export const {
 } = NextAuth({
   providers: [
     Discord({
-      profile: (profile: DiscordProfile) => ({
-        role: 'user',
-        ...profile,
-      }),
+      allowDangerousEmailAccountLinking: true,
     }),
-    // Google({
-    //   profile: (profile: GoogleProfile) => ({
-    //     role: 'user',
-    //     ...profile,
-    //   }),
-    // }),
+    // Google,
     // BoxyHQSAML({
     //   authorization: { params: { scope: '' } }, // This is needed for OAuth 2.0 flow, otherwise default to openid
     //   issuer: samlLoginUrl,
     //   clientId: 'dummy',
     //   clientSecret: 'dummy',
-    //   profile: (profile: BoxyHQSAMLProfile) => ({
-    //     role: 'user',
-    //     ...profile,
-    //   }),
     // }),
   ],
+  // TODO: Remove this when the types are fixed
+  // @ts-expect-error - The types are wrong @see https://github.com/nextauthjs/next-auth/issues/9493#issuecomment-1913353082
   adapter: DrizzleAdapter(db, mysqlTable),
   callbacks: {
-    jwt({ token, profile, user }) {
+    jwt({ token, profile }) {
       if (profile) {
         token.id = profile.id;
         token.image = profile.avatar_url ?? profile.picture;
-      }
-      if (user) {
-        token.role = user.role;
       }
       return token;
     },
     session({ session, user }) {
       session.user.id = user.id;
-      session.user.role = user.role;
       return session;
     },
     authorized({ auth }) {

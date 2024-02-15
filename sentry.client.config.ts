@@ -7,8 +7,10 @@ import posthog from 'posthog-js';
 
 import { env } from '~/env';
 
+const sentryProjectId = +(env.NEXT_PUBLIC_SENTRY_DSN.split('/').pop() ?? '');
+
 Sentry.init({
-  dsn: env.SENTRY_DSN,
+  dsn: env.NEXT_PUBLIC_SENTRY_DSN,
 
   // Adjust this value in production, or use tracesSampler for greater control
   tracesSampleRate: 1,
@@ -26,8 +28,8 @@ Sentry.init({
   integrations: [
     new posthog.SentryIntegration(
       posthog,
-      env.SENTRY_ORG,
-      env.SENTRY_PROJECT_ID,
+      env.NEXT_PUBLIC_SENTRY_ORG,
+      sentryProjectId,
     ),
     Sentry.replayIntegration({
       // Additional Replay configuration goes in here, for example:
