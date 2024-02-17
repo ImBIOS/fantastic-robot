@@ -1,5 +1,5 @@
-import { pointsRouter } from '~/server/api/routers/points';
-import { createTRPCRouter } from '~/server/api/trpc';
+import { pointsRouter } from "~/server/api/routers/points";
+import { createTRPCRouter } from "~/server/api/trpc";
 
 /**
  * This is the primary router for your server.
@@ -7,7 +7,7 @@ import { createTRPCRouter } from '~/server/api/trpc';
  * All routers added in /api/routers should be manually added here.
  */
 export const appRouter = createTRPCRouter({
-  points: pointsRouter,
+	points: pointsRouter,
 });
 
 // export type definition of API
