@@ -1,13 +1,12 @@
 import { type NextRequest } from "next/server";
-
 import { env } from "~/env";
 
 export const parse = (req: NextRequest) => {
 	let domain = req.headers.get("host") ?? "";
 	domain = domain.replace("www.", ""); // remove www. from domain
-	if (domain === "gitmoji.localhost:8888" || domain.endsWith(".vercel.app")) {
+	if (domain === "localhost:3000" || domain.endsWith(".vercel.app")) {
 		// for local development and preview URLs
-		domain = env.NEXT_PUBLIC_APP_SHORT_DOMAIN;
+		domain = env.NEXT_PUBLIC_APP_DOMAIN;
 	}
 
 	// path is the path of the URL (e.g. dub.co/stats/github -> /stats/github)

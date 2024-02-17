@@ -1,7 +1,7 @@
 "use client";
 
 import { type Session } from "next-auth";
-import { SessionProvider } from "next-auth/react";
+import { SessionProvider, useSession } from "next-auth/react";
 import { ThemeProvider } from "next-themes";
 import posthog from "posthog-js";
 import { PostHogProvider } from "posthog-js/react";
@@ -11,11 +11,10 @@ import { TRPCReactProvider } from "~/trpc/react";
 
 const PostHogProviderWithSession = ({
 	children,
-	session,
 }: {
 	children: React.ReactNode;
-	session: Session | null;
 }) => {
+	const { data: session } = useSession();
 	posthog.init(env.NEXT_PUBLIC_POSTHOG_KEY, {
 		api_host: env.NEXT_PUBLIC_POSTHOG_HOST,
 	});
@@ -43,9 +42,7 @@ const Providers = ({ children, session }: Props) => {
 		<ThemeProvider enableSystem defaultTheme="system" attribute="class">
 			<SessionProvider session={session}>
 				<TRPCReactProvider>
-					<PostHogProviderWithSession session={session}>
-						{children}
-					</PostHogProviderWithSession>
+					<PostHogProviderWithSession>{children}</PostHogProviderWithSession>
 				</TRPCReactProvider>
 			</SessionProvider>
 		</ThemeProvider>

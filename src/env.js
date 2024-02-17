@@ -73,7 +73,6 @@ export const env = createEnv({
 		NEXT_PUBLIC_POSTHOG_HOST: z.string().url(),
 		NEXT_PUBLIC_SENTRY_DSN: z.string().url(),
 		NEXT_PUBLIC_SENTRY_ORG: z.string(),
-		NEXT_PUBLIC_APP_SHORT_DOMAIN: z.string().includes("."),
 		NEXT_PUBLIC_APP_DOMAIN: z.string(),
 	},
 
@@ -107,7 +106,6 @@ export const env = createEnv({
 		// LEMONSQUEEZY_API_KEY: process.env.LEMONSQUEEZY_API_KEY,
 		// LEMONSQUEEZY_STORE_ID: process.env.LEMONSQUEEZY_STORE_ID,
 		// LEMONSQUEEZY_WEBHOOK_SECRET: process.env.LEMONSQUEEZY_WEBHOOK_SECRET,
-		NEXT_PUBLIC_APP_SHORT_DOMAIN: process.env.NEXT_PUBLIC_APP_SHORT_DOMAIN,
 		ADMIN_EMAILS: process.env.ADMIN_EMAILS,
 		NEXT_PUBLIC_APP_DOMAIN: process.env.NEXT_PUBLIC_APP_DOMAIN,
 	},

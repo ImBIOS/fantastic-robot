@@ -4,6 +4,7 @@ import { type NextAuthRequest } from "node_modules/next-auth/lib";
 import { parse } from "./_utils";
 
 const AppMiddleware = (req: NextAuthRequest) => {
+	console.log("AppMiddleware");
 	const { path, fullPath } = parse(req);
 	// if there's no session and the path isn't /login or /register, redirect to /login
 	if (
@@ -18,9 +19,8 @@ const AppMiddleware = (req: NextAuthRequest) => {
 				req.url,
 			),
 		);
-
-		// if there's a session
 	}
+	// if there's a session
 	if (req.auth?.user.email) {
 		// if the user was created in the last 10s
 		// (this is a workaround because the `isNewUser` flag is triggered when a user does `dangerousEmailAccountLinking`)
@@ -31,9 +31,8 @@ const AppMiddleware = (req: NextAuthRequest) => {
 		) {
 			// redirect to /welcome flow
 			return NextResponse.redirect(new URL("/welcome", req.url));
-
-			// if the path is /login or /register, redirect to "/"
 		}
+		// if the path is /login or /register, redirect to "/"
 		if (path === "/login" || path === "/register") {
 			return NextResponse.redirect(new URL("/", req.url));
 		}
