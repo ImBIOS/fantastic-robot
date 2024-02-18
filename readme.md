@@ -4,10 +4,10 @@ Gitmoji Academy project
 
 Features:
 
-- [🏃‍♂️] Product
+- [🏃‍♂️ Running] Landing page
+- [🚧 Paused] Product
 - [ ] Pricing
 - [ ] User account
-- [ ] Landing page
 
 Tech Stacks:
 

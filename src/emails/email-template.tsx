@@ -1,15 +1,15 @@
 interface EmailTemplateProps {
-  firstName: string;
+	firstName: string;
 }
 
 export const EmailTemplateText = ({ firstName }: EmailTemplateProps) => {
-  return `Welcome, ${firstName}!`;
+	return `Welcome, ${firstName}!`;
 };
 
 export const EmailTemplateReact: React.FC<Readonly<EmailTemplateProps>> = ({
-  firstName,
+	firstName,
 }) => (
-  <div>
-    <h1>Welcome, {firstName}!</h1>
-  </div>
+	<div>
+		<h1>Welcome, {firstName}!</h1>
+	</div>
 );

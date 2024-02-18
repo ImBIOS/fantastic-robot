@@ -7,13 +7,13 @@
  * need to use are documented accordingly near the end.
  */
 
-import { initTRPC, TRPCError } from '@trpc/server';
-import superjson from 'superjson';
-import { ZodError } from 'zod';
+import { TRPCError, initTRPC } from "@trpc/server";
+import superjson from "superjson";
+import { ZodError } from "zod";
 
-import { trpcRatelimitCheck } from '~/lib/ratelimit';
-import { auth } from '~/server/auth';
-import { db } from '~/server/db';
+import { trpcRatelimitCheck } from "~/lib/ratelimit";
+import { auth } from "~/server/auth";
+import { db } from "~/server/db";
 
 /**
  * 1. CONTEXT
@@ -28,13 +28,13 @@ import { db } from '~/server/db';
  * @see https://trpc.io/docs/server/context
  */
 export const createTRPCContext = async (opts: { headers: Headers }) => {
-  const session = await auth();
+	const session = await auth();
 
-  return {
-    db,
-    session,
-    ...opts,
-  };
+	return {
+		db,
+		session,
+		...opts,
+	};
 };
 
 /**
@@ -45,17 +45,17 @@ export const createTRPCContext = async (opts: { headers: Headers }) => {
  * errors on the backend.
  */
 const t = initTRPC.context<typeof createTRPCContext>().create({
-  transformer: superjson,
-  errorFormatter({ shape, error }) {
-    return {
-      ...shape,
-      data: {
-        ...shape.data,
-        zodError:
-          error.cause instanceof ZodError ? error.cause.flatten() : null,
-      },
-    };
-  },
+	transformer: superjson,
+	errorFormatter({ shape, error }) {
+		return {
+			...shape,
+			data: {
+				...shape.data,
+				zodError:
+					error.cause instanceof ZodError ? error.cause.flatten() : null,
+			},
+		};
+	},
 });
 
 /**
@@ -74,13 +74,13 @@ export const createTRPCRouter = t.router;
 
 /** Reusable middleware to implement rate limiting. */
 const rateLimiter = t.middleware(async ({ ctx, next }) => {
-  if (!ctx.session?.user) {
-    await trpcRatelimitCheck(ctx.headers.get('x-forwarded-for'));
-    return next();
-  }
+	if (!ctx.session?.user) {
+		await trpcRatelimitCheck(ctx.headers.get("x-forwarded-for"));
+		return next();
+	}
 
-  await trpcRatelimitCheck(ctx.session.user.id);
-  return next();
+	await trpcRatelimitCheck(ctx.session.user.id);
+	return next();
 });
 
 /**
@@ -94,15 +94,15 @@ export const publicProcedure = t.procedure.use(rateLimiter);
 
 /** Reusable middleware that enforces users are logged in before running the procedure. */
 const enforceUserIsAuthed = t.middleware(({ ctx, next }) => {
-  if (!ctx.session?.user) {
-    throw new TRPCError({ code: 'UNAUTHORIZED' });
-  }
-  return next({
-    ctx: {
-      // infers the `session` as non-nullable
-      session: { ...ctx.session, user: ctx.session.user },
-    },
-  });
+	if (!ctx.session?.user) {
+		throw new TRPCError({ code: "UNAUTHORIZED" });
+	}
+	return next({
+		ctx: {
+			// infers the `session` as non-nullable
+			session: { ...ctx.session, user: ctx.session.user },
+		},
+	});
 });
 
 /**
@@ -114,5 +114,5 @@ const enforceUserIsAuthed = t.middleware(({ ctx, next }) => {
  * @see https://trpc.io/docs/procedures
  */
 export const protectedProcedure = t.procedure
-  .use(enforceUserIsAuthed)
-  .use(rateLimiter);
+	.use(enforceUserIsAuthed)
+	.use(rateLimiter);

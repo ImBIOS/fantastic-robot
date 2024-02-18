@@ -1,15 +1,15 @@
 const HomeLayout = ({
-  children,
+	children,
 }: {
-  children: React.ReactNode;
-  params: { locale: string };
+	children: React.ReactNode;
+	params: { locale: string };
 }) => {
-  return (
-    <>
-      {/* <AnnouncementBar /> */}
-      {children}
-    </>
-  );
+	return (
+		<>
+			{/* <AnnouncementBar /> */}
+			{children}
+		</>
+	);
 };
 
 export default HomeLayout;

@@ -1,24 +1,24 @@
 {
-  "NavbarMenu": {
-    "SolutionDropdown": {
-      "Solution": "Solusi",
-      "Learn": "Belajar",
-      "Exam": "Ujian",
-      "Practice": "Latihan",
-      "Play": "Bermain",
-      "Classroom": "Ruang Kelas",
-      "Analytics": "Analisis",
-      "fantastic-robot AI": "fantastic-robot AI"
-    },
-    "Pricing": "Harga",
-    "About": "Tentang",
-    "Roadmap": "Rencana",
-    "Open Source?": "Sumber Terbuka?"
-  },
-  "SignOutPage": {
-    "Sign out": "Keluar"
-  },
-  "SignInPage": {
-    "Sign in with PROVIDER": "Masuk dengan {provider}"
-  }
+	"NavbarMenu": {
+		"SolutionDropdown": {
+			"Solution": "Solusi",
+			"Learn": "Belajar",
+			"Exam": "Ujian",
+			"Practice": "Latihan",
+			"Play": "Bermain",
+			"Classroom": "Ruang Kelas",
+			"Analytics": "Analisis",
+			"fantastic-robot AI": "fantastic-robot AI"
+		},
+		"Pricing": "Harga",
+		"About": "Tentang",
+		"Roadmap": "Rencana",
+		"Open Source?": "Sumber Terbuka?"
+	},
+	"SignOutPage": {
+		"Sign out": "Keluar"
+	},
+	"SignInPage": {
+		"Sign in with PROVIDER": "Masuk dengan {provider}"
+	}
 }
