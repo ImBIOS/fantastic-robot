@@ -10,6 +10,7 @@ import { inter } from "~/lib/fonts";
 import { cn } from "~/lib/utils";
 import { auth } from "~/server/auth";
 
+import Footer from "./_components/footer";
 import Header from "./_components/header";
 import Providers from "./_components/providers";
 
@@ -54,7 +55,7 @@ export default async function RootLayout({
 		<html lang="en">
 			<body
 				className={cn(
-					"relative min-h-screen bg-background font-sans antialiased",
+					"relative min-h-screen bg-gradient-to-bl from-indigo-900/50 via-indigo-950/10 to-indigo-900/5 font-sans antialiased",
 					inter.variable,
 				)}
 			>
@@ -62,6 +63,7 @@ export default async function RootLayout({
 					<NextTopLoader color="#df4224" showSpinner={false} />
 					<Header />
 					{children}
+					<Footer />
 					<Toaster position="bottom-center" />
 					<ReactQueryDevtools initialIsOpen={false} />
 					<TailwindIndicator />

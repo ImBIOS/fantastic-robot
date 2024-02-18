@@ -1,4 +1,3 @@
-import { BoxIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
 import { Suspense } from "react";
 
@@ -8,14 +7,13 @@ import HeaderActionButton from "./header-action-button";
 
 const Header = () => {
 	return (
-		<section className="fixed inset-x-0 top-0 z-20 border-b bg-background/95 backdrop-blur supports-[backdrop-blur]:bg-background/60">
-			<nav className="flex h-16 items-center justify-between px-4">
+		<header className="sticky top-0 z-10 border-b border-gray-400/10 bg-transparent backdrop-blur-xl">
+			<nav className="flex h-12 items-center justify-between px-4">
 				<Link
 					href={"/"}
 					className="hidden items-center justify-between gap-2 md:flex"
 				>
-					<BoxIcon className="size-6" />
-					<h1 className="text-lg font-semibold">T3 app template</h1>
+					<p className="text-md font-semibold">🏫 Gitmoji Academy</p>
 				</Link>
 
 				<div className="flex items-center gap-2">
@@ -28,7 +26,7 @@ const Header = () => {
 					</Suspense>
 				</div>
 			</nav>
-		</section>
+		</header>
 	);
 };
 

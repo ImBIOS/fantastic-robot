@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { IconDiscord } from "~/components/icons";
+import { DiscordIcon } from "~/components/icons";
 import { Button } from "~/components/ui/button";
 import { auth } from "~/server/auth";
 
@@ -14,7 +14,7 @@ export const HomeActionButton = async () => {
 			{!session?.user ? (
 				<SigninButton
 					text="Sign in with Discord"
-					icon={IconDiscord}
+					icon={DiscordIcon}
 					provider="discord"
 				/>
 			) : (

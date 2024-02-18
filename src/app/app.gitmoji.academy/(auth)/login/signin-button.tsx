@@ -1,9 +1,9 @@
 "use client";
 
 import { type OAuthProviderType } from "next-auth/providers";
-import { type SVGProps, useState } from "react";
+import { useState, type SVGProps } from "react";
 
-import { IconSpinner } from "~/components/icons";
+import { SpinnerIcon } from "~/components/icons";
 import { Button, type ButtonProps } from "~/components/ui/button";
 import { cn } from "~/lib/utils";
 
@@ -26,7 +26,6 @@ export function SigninButton({
 	const Icon = icon;
 	return (
 		<Button
-			variant="outline"
 			onClick={async () => {
 				setIsLoading(true);
 				// next-auth signIn() function doesn't work yet at Edge Runtime due to usage of BroadcastChannel
@@ -38,7 +37,7 @@ export function SigninButton({
 			{...props}
 		>
 			{isLoading ? (
-				<IconSpinner className="mr-2" />
+				<SpinnerIcon className="mr-2" />
 			) : typeof Icon !== "undefined" ? (
 				<Icon className="mr-2" />
 			) : null}
