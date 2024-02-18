@@ -16,13 +16,13 @@ const nextConfig = {
 			fullUrl: true,
 		},
 	},
-	experimental: {
-		// ppr: true,
-		// typedRoutes: true,
-		nextScriptWorkers: true,
-		// useDeploymentId: true,
-		// useDeploymentIdServerActions: true,
-	},
+	// experimental: {
+	// 	// ppr: true,
+	// 	// typedRoutes: true,
+	// 	nextScriptWorkers: true,
+	// 	// useDeploymentId: true,
+	// 	// useDeploymentIdServerActions: true,
+	// },
 	images: {
 		remotePatterns: [
 			// {

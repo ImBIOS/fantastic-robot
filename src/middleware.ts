@@ -30,19 +30,19 @@ export default function middleware(req: NextRequest) {
 	const { domain } = parse(req);
 	console.log("middleware: checking for domain", domain);
 
-	// for App
+	// NOTE for App
 	if (APP_HOSTNAMES.has(domain)) {
 		console.log("middleware: checking for app");
 		return auth(AppMiddleware);
 	}
 
-	// for API
+	// NOTE for API
 	if (API_HOSTNAMES.has(domain)) {
 		console.log("middleware: checking for api");
 		return ApiMiddleware(req);
 	}
 
-	// for Admin
+	// NOTE for Admin
 	if (ADMIN_HOSTNAMES.has(domain)) {
 		console.log("middleware: checking for admin");
 		return auth(AdminMiddleware);
