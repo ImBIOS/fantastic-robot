@@ -1,6 +1,6 @@
-import { LoadingSpinner } from "@dub/ui";
-import { APP_NAME } from "@dub/utils";
 import { Suspense } from "react";
+import { SpinnerIcon } from "~/components/icons";
+import { APP_NAME } from "~/lib/constant";
 import SAMLIDPForm from "./form";
 
 export default function SAMLPage() {
@@ -15,7 +15,7 @@ export default function SAMLPage() {
 					{APP_NAME} is verifying your identity.
 					<br /> Please wait...
 				</p>
-				<LoadingSpinner className="h-7 w-7" />
+				<SpinnerIcon className="size-7" />
 			</div>
 		</div>
 	);

@@ -8,7 +8,7 @@ const HeaderLoginButton = () => {
 	const { pending } = useFormStatus();
 	return (
 		<Button disabled={pending} aria-disabled={pending} size="sm" type="submit">
-			{pending ? <SpinnerIcon className="animate-spin" /> : "Sign In"}
+			{pending ? <SpinnerIcon className="animate-spin" /> : "Join Waitlist"}
 		</Button>
 	);
 };

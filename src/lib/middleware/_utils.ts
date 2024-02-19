@@ -4,7 +4,7 @@ import { env } from "~/env";
 export const parse = (req: NextRequest) => {
 	let domain = req.headers.get("host") ?? "";
 	domain = domain.replace("www.", ""); // remove www. from domain
-	if (domain === "localhost:3000" || domain.endsWith(".vercel.app")) {
+	if (domain === "gitmoji.localhost:3000" || domain.endsWith(".vercel.app")) {
 		// for local development and preview URLs
 		domain = env.NEXT_PUBLIC_APP_DOMAIN;
 	}

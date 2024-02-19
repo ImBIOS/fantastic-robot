@@ -13,8 +13,8 @@ export const HomeActionButton = async () => {
 		<>
 			{!session?.user ? (
 				<SigninButton
-					text="Sign in with Discord"
-					icon={DiscordIcon}
+					text="Join Waitlist with Discord"
+					icon={<DiscordIcon className="mr-2" />}
 					provider="discord"
 				/>
 			) : (

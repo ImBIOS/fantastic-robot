@@ -1,10 +1,11 @@
 "use client";
 
-import { Button, Github, Google } from "@dub/ui";
 import { signIn } from "next-auth/react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useState } from "react";
+import { GithubIcon, GoogleIcon } from "~/components/icons";
+import { Button } from "~/components/ui/button";
 
 export default function RegisterForm() {
 	const searchParams = useSearchParams();
@@ -16,27 +17,29 @@ export default function RegisterForm() {
 		<>
 			<Button
 				variant="secondary"
-				text="Continue with Google"
 				onClick={() => {
 					setClickedGoogle(true);
-					signIn("google", {
+					void signIn("google", {
 						...(next && next.length > 0 ? { callbackUrl: next } : {}),
 					});
 				}}
 				loading={clickedGoogle}
-				icon={<Google className="h-4 w-4" />}
-			/>
+				icon={<GoogleIcon className="size-4" />}
+			>
+				Continue with Google
+			</Button>
 			<Button
-				text="Continue with GitHub"
 				onClick={() => {
 					setClickedGithub(true);
-					signIn("github", {
+					void signIn("github", {
 						...(next && next.length > 0 ? { callbackUrl: next } : {}),
 					});
 				}}
 				loading={clickedGitub}
-				icon={<Github className="h-4 w-4" />}
-			/>
+				icon={<GithubIcon className="size-4" />}
+			>
+				Continue with GitHub
+			</Button>
 			<p className="text-center text-sm text-gray-500">
 				Already have an account?{" "}
 				<Link

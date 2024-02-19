@@ -3,7 +3,10 @@
 import { type JSX, type SVGProps } from "react";
 import { cn } from "~/lib/utils";
 
-function DiscordIcon({ className, ...props }: React.ComponentProps<"svg">) {
+function DiscordIcon({
+	className,
+	...props
+}: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
 	return (
 		<svg
 			aria-label="Discord Icon"
@@ -28,7 +31,10 @@ function DiscordIcon({ className, ...props }: React.ComponentProps<"svg">) {
 	);
 }
 
-function GoogleIcon({ className, ...props }: React.ComponentProps<"svg">) {
+function GoogleIcon({
+	className,
+	...props
+}: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
 	return (
 		<svg
 			aria-label="Google Icon"
@@ -59,7 +65,10 @@ function GoogleIcon({ className, ...props }: React.ComponentProps<"svg">) {
 	);
 }
 
-function SpinnerIcon({ className, ...props }: React.ComponentProps<"svg">) {
+function SpinnerIcon({
+	className,
+	...props
+}: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
 	return (
 		<svg
 			aria-label="Spinner Icon"

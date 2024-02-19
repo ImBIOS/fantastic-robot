@@ -1,7 +1,7 @@
 "use client";
 
 import { type OAuthProviderType } from "next-auth/providers";
-import { useState, type SVGProps } from "react";
+import React, { useState } from "react";
 
 import { SpinnerIcon } from "~/components/icons";
 import { Button, type ButtonProps } from "~/components/ui/button";
@@ -12,7 +12,7 @@ import { signInAction } from "./actions";
 type SigninButtonProps = ButtonProps & {
 	text?: string;
 	provider: OAuthProviderType;
-	icon?: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+	icon?: React.ReactNode;
 };
 
 export function SigninButton({
@@ -23,7 +23,6 @@ export function SigninButton({
 	...props
 }: SigninButtonProps) {
 	const [isLoading, setIsLoading] = useState(false);
-	const Icon = icon;
 	return (
 		<Button
 			onClick={async () => {
@@ -38,8 +37,8 @@ export function SigninButton({
 		>
 			{isLoading ? (
 				<SpinnerIcon className="mr-2" />
-			) : typeof Icon !== "undefined" ? (
-				<Icon className="mr-2" />
+			) : typeof icon !== "undefined" ? (
+				icon
 			) : null}
 			{text}
 		</Button>

@@ -1,5 +1,5 @@
-import jackson from "@/lib/jackson";
 import { NextResponse } from "next/server";
+import jackson from "~/lib/jackson";
 
 export async function GET(req: Request) {
 	const { oauthController } = await jackson();
@@ -14,7 +14,13 @@ export async function GET(req: Request) {
 
 	const token = authHeader.split(" ")[1];
 
-	const user = await oauthController.userInfo(token);
+	if (token) {
+		const user = await oauthController.userInfo(token);
 
-	return NextResponse.json(user);
+		return NextResponse.json(user);
+	}
+
+	return new Response("Unauthorized", {
+		status: 401,
+	});
 }

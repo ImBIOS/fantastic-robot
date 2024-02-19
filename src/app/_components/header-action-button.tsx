@@ -14,7 +14,7 @@ const HeaderActionButton = async () => {
 				<form
 					action={async () => {
 						"use server";
-						await signIn();
+						await signIn("discord");
 					}}
 				>
 					<HeaderLoginButton />

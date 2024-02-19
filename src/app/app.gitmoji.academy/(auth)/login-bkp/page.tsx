@@ -15,12 +15,12 @@ export default async function SignInPage() {
 		<section className="flex h-[calc(100vh-theme(spacing.16))] flex-col items-center justify-center gap-4 py-10">
 			<SigninButton
 				text="Sign in with Discord"
-				icon={DiscordIcon}
+				icon={<DiscordIcon className="mr-2" />}
 				provider="discord"
 			/>
 			<SigninButton
 				text="Sign in with Google"
-				icon={GoogleIcon}
+				icon={<GoogleIcon className="mr-2" />}
 				provider="google"
 			/>
 			{/* <SigninButton
