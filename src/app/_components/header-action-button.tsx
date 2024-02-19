@@ -1,6 +1,6 @@
 import { auth, signIn } from "~/server/auth";
 
-import { UserNav } from "../admin.gitmoji.academy/dashboard/_components/user-nav";
+import { UserNav } from "../admin.gitmoji.academy/_components/user-nav";
 import HeaderLoginButton from "./header-login-button";
 
 const HeaderActionButton = async () => {

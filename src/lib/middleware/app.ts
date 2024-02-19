@@ -4,7 +4,6 @@ import { type NextAuthRequest } from "node_modules/next-auth/lib";
 import { parse } from "./_utils";
 
 const AppMiddleware = (req: NextAuthRequest) => {
-	console.log("AppMiddleware");
 	const { path, fullPath } = parse(req);
 	// if there's no session and the path isn't /login or /register, redirect to /login
 	if (

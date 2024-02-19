@@ -74,6 +74,7 @@ export const env = createEnv({
 		NEXT_PUBLIC_SENTRY_DSN: z.string().url(),
 		NEXT_PUBLIC_SENTRY_ORG: z.string(),
 		NEXT_PUBLIC_APP_DOMAIN: z.string(),
+		NEXT_PUBLIC_APP_NAME: z.string(),
 	},
 
 	/**
@@ -108,6 +109,7 @@ export const env = createEnv({
 		// LEMONSQUEEZY_WEBHOOK_SECRET: process.env.LEMONSQUEEZY_WEBHOOK_SECRET,
 		ADMIN_EMAILS: process.env.ADMIN_EMAILS,
 		NEXT_PUBLIC_APP_DOMAIN: process.env.NEXT_PUBLIC_APP_DOMAIN,
+		NEXT_PUBLIC_APP_NAME: process.env.NEXT_PUBLIC_APP_NAME,
 	},
 	/**
 	 * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation. This is especially

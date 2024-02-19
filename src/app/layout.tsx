@@ -3,13 +3,13 @@ import "~/styles/globals.css";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { type Metadata } from "next";
 import NextTopLoader from "nextjs-toploader";
-import { Toaster } from "react-hot-toast";
 
 import { TailwindIndicator } from "~/components/tailwind-indicator";
 import { inter } from "~/lib/fonts";
 import { cn } from "~/lib/utils";
 import { auth } from "~/server/auth";
 
+import { Toaster } from "~/components/ui/sonner";
 import Footer from "./_components/footer";
 import Header from "./_components/header";
 import Providers from "./_components/providers";
@@ -64,7 +64,7 @@ export default async function RootLayout({
 					<Header />
 					{children}
 					<Footer />
-					<Toaster position="bottom-center" />
+					<Toaster closeButton />
 					<ReactQueryDevtools initialIsOpen={false} />
 					<TailwindIndicator />
 				</Providers>

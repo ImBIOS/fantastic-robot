@@ -3,6 +3,7 @@ import { Suspense } from "react";
 
 import ThemeSelector from "~/components/theme-selector";
 
+import Logo from "~/components/logo";
 import HeaderActionButton from "./header-action-button";
 
 const Header = () => {
@@ -13,7 +14,9 @@ const Header = () => {
 					href={"/"}
 					className="hidden items-center justify-between gap-2 md:flex"
 				>
-					<p className="text-md font-semibold">🏫 Gitmoji Academy</p>
+					<p className="text-md font-semibold">
+						<Logo /> Gitmoji Academy
+					</p>
 				</Link>
 
 				<div className="flex items-center gap-2">

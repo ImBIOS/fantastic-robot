@@ -1,4 +1,5 @@
 import { GithubIcon, TwitterIcon } from "~/components/icons";
+import Logo from "~/components/logo";
 import { Button } from "~/components/ui/button";
 
 const Footer = () => {
@@ -6,7 +7,8 @@ const Footer = () => {
 		<footer className="mt-8 flex h-16 w-full shrink-0 items-center border-t border-gray-100/90 px-4 dark:border-gray-800/90 md:px-6">
 			<div className="container flex items-center justify-center gap-4 text-sm md:gap-6">
 				<div className="flex items-center gap-2">
-					🏫<span className="font-semibold">Gitmoji Academy</span>
+					<Logo />
+					<span className="font-semibold">Gitmoji Academy</span>
 				</div>
 				{/* <nav className="flex flex-1 items-center justify-center gap-4">
 					<Link

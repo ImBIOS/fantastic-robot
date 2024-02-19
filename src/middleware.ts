@@ -24,31 +24,23 @@ export const config = {
 	],
 };
 
-export default function middleware(req: NextRequest) {
-	// // TODO: Remove these console.log after development complete
-	// console.log("MIDDLEWARE: STARTED");
+export default auth((req) => {
 	const { domain } = parse(req);
-	// console.log("middleware: checking for domain", domain);
 
 	// NOTE for App
 	if (APP_HOSTNAMES.has(domain)) {
-		// console.log("middleware: checking for app");
-		return auth(AppMiddleware);
+		return AppMiddleware(req);
 	}
 
 	// NOTE for API
 	if (API_HOSTNAMES.has(domain)) {
-		// console.log("middleware: checking for api");
 		return ApiMiddleware(req);
 	}
 
 	// NOTE for Admin
 	if (ADMIN_HOSTNAMES.has(domain)) {
-		// console.log("middleware: checking for admin");
-		return auth(AdminMiddleware);
+		return AdminMiddleware(req);
 	}
 
-	// console.log("middleware: passing the response");
-	// console.log("MIDDLEWARE: ENDED");
 	return NextResponse.next();
-}
+});

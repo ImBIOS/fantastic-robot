@@ -14,5 +14,9 @@ export const API_HOSTNAMES = new Set([
 
 export const APP_HOSTNAMES = new Set([
 	`app.${env.NEXT_PUBLIC_APP_DOMAIN}`,
-	"app.localhost:3000",
+	`preview.${env.NEXT_PUBLIC_APP_DOMAIN}`,
+	"localhost:3000",
+	"localhost",
 ]);
+
+export const LOCALHOST_IP = "63.141.57.109";
