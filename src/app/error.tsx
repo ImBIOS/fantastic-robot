@@ -16,7 +16,6 @@ export default function RootError({
 
 	useEffect(() => {
 		// Log the error to an error reporting service
-		console.log("hi");
 		// Set user information, as well as tags and other metadata
 		Sentry.setUser(
 			session?.user

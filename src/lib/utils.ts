@@ -1,5 +1,8 @@
-import { type ClassValue, clsx } from "clsx";
+import { clsx, type ClassValue } from "clsx";
+import { type Metadata } from "next";
 import { twMerge } from "tailwind-merge";
+import { env } from "~/env";
+import { HOME_DOMAIN } from "./constant";
 
 export function cn(...inputs: ClassValue[]) {
 	return twMerge(clsx(inputs));
@@ -29,3 +32,75 @@ export function sampleSize<T>(array: T[], n: number): T[] {
 
 	return sample.slice(0, sampleSize);
 }
+
+export function constructMetadata({
+	title = `${env.NEXT_PUBLIC_APP_NAME} - DESCRIPTION`,
+	description = `${env.NEXT_PUBLIC_APP_NAME} DESCRIPTION.`,
+	image = "https://gitmoji.academy/_static/thumbnail.png",
+	icons = [
+		{
+			rel: "apple-touch-icon",
+			sizes: "32x32",
+			url: "/apple-touch-icon.png",
+		},
+		{
+			rel: "icon",
+			type: "image/png",
+			sizes: "32x32",
+			url: "/favicon-32x32.png",
+		},
+		{
+			rel: "icon",
+			type: "image/png",
+			sizes: "16x16",
+			url: "/favicon-16x16.png",
+		},
+	],
+	noIndex = false,
+}: {
+	title?: string;
+	description?: string;
+	image?: string;
+	icons?: Metadata["icons"];
+	noIndex?: boolean;
+} = {}): Metadata {
+	return {
+		title,
+		description,
+		openGraph: {
+			title,
+			description,
+			images: [
+				{
+					url: image,
+				},
+			],
+		},
+		twitter: {
+			card: "summary_large_image",
+			title,
+			description,
+			images: [image],
+			creator: "@dubdotco",
+		},
+		icons,
+		metadataBase: new URL(HOME_DOMAIN),
+		...(noIndex && {
+			robots: {
+				index: false,
+				follow: false,
+			},
+		}),
+	};
+}
+
+export const getSearchParams = (url: string) => {
+	// Create a params object
+	const params = {} as Record<string, string>;
+
+	new URL(url).searchParams.forEach((val, key) => {
+		params[key] = val;
+	});
+
+	return params;
+};

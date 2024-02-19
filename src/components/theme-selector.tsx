@@ -42,7 +42,7 @@ const ThemeSelector = () => {
 			<Button
 				size="icon"
 				variant="ghost"
-				className="animate-pulse bg-slate-100 dark:bg-slate-900"
+				className="animate-pulse bg-gray-100 dark:bg-gray-800"
 			>
 				{renderThemeChanger()}
 			</Button>

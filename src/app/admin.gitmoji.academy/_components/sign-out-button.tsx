@@ -3,7 +3,7 @@
 import { ExitIcon } from "@radix-ui/react-icons";
 import { useFormStatus } from "react-dom";
 
-import { IconSpinner } from "~/components/icons";
+import { SpinnerIcon } from "~/components/icons";
 import { Button } from "~/components/ui/button";
 import { cn } from "~/lib/utils";
 
@@ -18,7 +18,7 @@ const SignOutButton = () => {
 			className={cn("w-full", pending && "cursor-not-allowed opacity-50")}
 		>
 			{pending ? (
-				<IconSpinner className="mr-2 size-4" aria-hidden />
+				<SpinnerIcon className="mr-2 size-4" aria-hidden />
 			) : (
 				<ExitIcon className="mr-2 size-4" aria-hidden />
 			)}

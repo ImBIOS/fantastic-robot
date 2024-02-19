@@ -1,10 +1,10 @@
 import Link from "next/link";
 
-import { IconDiscord } from "~/components/icons";
+import { DiscordIcon } from "~/components/icons";
 import { Button } from "~/components/ui/button";
 import { auth } from "~/server/auth";
 
-import { SigninButton } from "../app.gitmoji.academy/(auth)/login/signin-button";
+import { SigninButton } from "../../app.gitmoji.academy/(auth)/signin-button";
 
 export const HomeActionButton = async () => {
 	const session = await auth();
@@ -13,8 +13,8 @@ export const HomeActionButton = async () => {
 		<>
 			{!session?.user ? (
 				<SigninButton
-					text="Sign in with Discord"
-					icon={IconDiscord}
+					text="Join Waitlist with Discord"
+					icon={<DiscordIcon className="mr-2" />}
 					provider="discord"
 				/>
 			) : (

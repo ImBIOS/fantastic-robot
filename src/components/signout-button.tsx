@@ -5,7 +5,7 @@ import { useFormStatus } from "react-dom";
 
 import { cn } from "~/lib/utils";
 
-import { IconSpinner } from "./icons";
+import { SpinnerIcon } from "./icons";
 import { Button } from "./ui/button";
 
 const SignoutButton = () => {
@@ -23,7 +23,7 @@ const SignoutButton = () => {
 			)}
 		>
 			{pending ? (
-				<IconSpinner className="mr-2" />
+				<SpinnerIcon className="mr-2" />
 			) : (
 				<ExitIcon className="mr-2" />
 			)}

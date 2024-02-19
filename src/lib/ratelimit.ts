@@ -5,7 +5,7 @@ import { NextResponse } from "next/server";
 
 const cache = new Map(); // must be outside of your serverless function handler
 
-const ratelimit = (
+export const ratelimit = (
 	requests = 10,
 	duration:
 		| `${number}ms`

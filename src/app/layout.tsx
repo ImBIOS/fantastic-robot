@@ -3,13 +3,14 @@ import "~/styles/globals.css";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { type Metadata } from "next";
 import NextTopLoader from "nextjs-toploader";
-import { Toaster } from "react-hot-toast";
 
 import { TailwindIndicator } from "~/components/tailwind-indicator";
 import { inter } from "~/lib/fonts";
 import { cn } from "~/lib/utils";
 import { auth } from "~/server/auth";
 
+import { Toaster } from "~/components/ui/sonner";
+import Footer from "./_components/footer";
 import Header from "./_components/header";
 import Providers from "./_components/providers";
 
@@ -23,8 +24,8 @@ const defaultUrl = process.env.VERCEL_URL
 export const metadata: Metadata = {
 	metadataBase: new URL(defaultUrl),
 	title: "fantastic-robot",
-	description:
-		"Place to learn, practice, compete... and be a hero! in any field.",
+	// TODO: Write description
+	description: "TODO: DESCRIPTION_HERE",
 	icons: [
 		{ rel: "apple-touch-icon", sizes: "180x180", url: "/apple-touch-icon.png" },
 		{
@@ -54,15 +55,16 @@ export default async function RootLayout({
 		<html lang="en">
 			<body
 				className={cn(
-					"relative min-h-screen bg-background font-sans antialiased",
+					"relative min-h-screen bg-gradient-to-bl from-indigo-900/50 via-indigo-950/10 to-indigo-900/5 font-sans antialiased",
 					inter.variable,
 				)}
 			>
 				<Providers session={session}>
-					<NextTopLoader color="#df4224" showSpinner={false} />
+					<NextTopLoader color="hsl(234 56% 56%)" showSpinner={false} />
 					<Header />
 					{children}
-					<Toaster position="bottom-center" />
+					<Footer />
+					<Toaster closeButton />
 					<ReactQueryDevtools initialIsOpen={false} />
 					<TailwindIndicator />
 				</Providers>

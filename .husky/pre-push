@@ -1,6 +1,0 @@
-#!/usr/bin/env sh
-. "$(dirname -- "$0")/_/husky.sh"
-
-# TODO: In case we need Cloudflare, it's ready
-# bunx @cloudflare/next-on-pages@beta
-# bunx wrangler pages deploy .vercel/output/static --project-name fantastic-robot

@@ -1,33 +1,43 @@
-import { redirect } from "next/navigation";
+import { Suspense } from "react";
+import Logo from "~/components/logo";
+import { Button } from "~/components/ui/button";
+import { env } from "~/env";
+import { HOME_DOMAIN } from "~/lib/constant";
+import { constructMetadata } from "~/lib/utils";
+import LoginForm from "./form";
 
-import { IconDiscord, IconGoogle } from "~/components/icons";
-import { auth } from "~/server/auth";
+export const metadata = constructMetadata({
+	title: `Sign in to ${env.NEXT_PUBLIC_APP_NAME}`,
+});
 
-import { SigninButton } from "./signin-button";
-
-export default async function SignInPage() {
-	const session = await auth();
-	// redirect to home if user is already logged in
-	if (session?.user) {
-		redirect("/");
-	}
+export default function LoginPage() {
 	return (
-		<section className="flex h-[calc(100vh-theme(spacing.16))] flex-col items-center justify-center gap-4 py-10">
-			<SigninButton
-				text="Sign in with Discord"
-				icon={IconDiscord}
-				provider="discord"
-			/>
-			<SigninButton
-				text="Sign in with Google"
-				icon={IconGoogle}
-				provider="google"
-			/>
-			{/* <SigninButton
-        text="Sign in with SAML SSO"
-        provider="boxyhq-saml"
-        onClick={async () => {}}
-      /> */}
-		</section>
+		<div className="relative z-10 mt-[calc(30vh)] h-fit w-full max-w-md overflow-hidden border-y border-gray-200 sm:rounded-2xl sm:border sm:shadow-xl">
+			<div className="flex flex-col items-center justify-center space-y-3 border-b border-gray-200 bg-white px-4 py-6 pt-8 text-center sm:px-16">
+				<a href={HOME_DOMAIN}>
+					<Logo className="size-10" />
+				</a>
+				<h3 className="text-xl font-semibold">
+					Sign in to {process.env.NEXT_PUBLIC_APP_NAME}
+				</h3>
+				<p className="text-sm text-gray-500">
+					Start creating short links with superpowers
+				</p>
+			</div>
+			<div className="flex flex-col space-y-3 bg-gray-50 px-4 py-8 sm:px-16">
+				<Suspense
+					fallback={
+						<>
+							<Button disabled={true} variant="secondary" />
+							<Button disabled={true} variant="secondary" />
+							<Button disabled={true} variant="secondary" />
+							<div className="mx-auto h-5 w-3/4 rounded-lg bg-gray-100" />
+						</>
+					}
+				>
+					<LoginForm />
+				</Suspense>
+			</div>
+		</div>
 	);
 }
