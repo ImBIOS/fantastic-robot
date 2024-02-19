@@ -1,4 +1,4 @@
-import { NextResponse, type NextRequest } from "next/server";
+import { NextResponse } from "next/server";
 
 import { ADMIN_HOSTNAMES, API_HOSTNAMES, APP_HOSTNAMES } from "./lib/constant";
 import {
