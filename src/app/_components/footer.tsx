@@ -4,7 +4,7 @@ import { Button } from "~/components/ui/button";
 
 const Footer = () => {
 	return (
-		<footer className="mt-8 flex h-16 w-full shrink-0 items-center border-t border-gray-100/90 px-4 dark:border-gray-800/90 md:px-6">
+		<footer className="mt-56 flex h-16 w-full shrink-0 items-center border-t border-gray-100/90 px-4 dark:border-gray-800/90 md:px-6">
 			<div className="container flex items-center justify-center gap-4 text-sm md:gap-6">
 				<div className="flex items-center gap-2">
 					<Logo />

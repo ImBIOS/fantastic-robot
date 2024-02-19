@@ -9,7 +9,7 @@ import { HomeActionButton } from "./_components/home-action-button";
 
 const Page = () => {
 	return (
-		<main className="container mx-auto mt-8 flex flex-col items-center justify-center md:max-w-6xl">
+		<main className="container mx-auto my-8 flex flex-col items-center justify-center md:max-w-6xl">
 			<section className="flex min-h-screen flex-col items-center gap-4">
 				<div className="my-4 flex flex-col items-center">
 					<Link href="#">
