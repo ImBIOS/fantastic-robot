@@ -1,7 +1,6 @@
 # pre-push:
 #   commands:
 #     cloudflare:
-#       tags: cloudflare pages and edge worker deployment
 #       run: |
 #         bunx @cloudflare/next-on-pages@beta
 #         bunx wrangler pages deploy .vercel/output/static --project-name fantastic-robot
@@ -11,3 +10,9 @@
 #     gitmoji-commitlint:
 #       runner: bash
 #       run: bun gitmoji-commitlint.ts $1
+
+pre-commit:
+  commands:
+    check:
+      glob: "*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}"
+      run: bunx biome check --apply --no-errors-on-unmatched --files-ignore-unknown=true {staged_files} && git update-index --again
