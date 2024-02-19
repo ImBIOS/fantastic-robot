@@ -9,13 +9,11 @@ import jackson from "@boxyhq/saml-jackson";
 
 import { env } from "~/env";
 
-const externalUrl =
-	env.NODE_ENV === "production" ? "https://api.gitmoji.academy" : env.AUTH_URL;
+const isProd = env.NODE_ENV === "production";
+
+const externalUrl = isProd ? "https://api.gitmoji.academy" : env.AUTH_URL;
 const samlAudience = "https://saml.gitmoji.academy";
-const samlPath =
-	env.NODE_ENV === "production"
-		? "/auth/saml/callback"
-		: "/api/auth/saml/callback";
+const samlPath = isProd ? "/auth/saml/callback" : "/api/auth/saml/callback";
 
 const opts: JacksonOption = {
 	externalUrl,
@@ -30,7 +28,7 @@ const opts: JacksonOption = {
 		},
 	},
 	idpEnabled: true, // to allow folks to SSO directly from their IDP
-	scimPath: env.NODE_ENV === "production" ? "/scim/v2.0" : "/api/scim/v2.0", // custom SCIM endpoint
+	scimPath: isProd ? "/scim/v2.0" : "/api/scim/v2.0", // custom SCIM endpoint
 	clientSecretVerifier: env.AUTH_SECRET,
 };
 

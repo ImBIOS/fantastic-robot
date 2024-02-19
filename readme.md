@@ -6,8 +6,11 @@ Features:
 
 - [🏃‍♂️ Running] Landing page
 - [🚧 Paused] Product
-- [ ] Pricing
 - [ ] User account
+
+TBC:
+
+- [ ] Pricing
 
 Tech Stacks:
 
