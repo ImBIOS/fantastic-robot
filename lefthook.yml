@@ -1,0 +1,13 @@
+# pre-push:
+#   commands:
+#     cloudflare:
+#       tags: cloudflare pages and edge worker deployment
+#       run: |
+#         bunx @cloudflare/next-on-pages@beta
+#         bunx wrangler pages deploy .vercel/output/static --project-name fantastic-robot
+
+# commit-msg:
+#   scripts:
+#     gitmoji-commitlint:
+#       runner: bash
+#       run: bun gitmoji-commitlint.ts $1
