@@ -3,6 +3,15 @@
 // https://docs.sentry.io/platforms/javascript/guides/nextjs/
 
 import * as Sentry from "@sentry/nextjs";
+import {
+	breadcrumbsIntegration,
+	browserProfilingIntegration,
+	browserTracingIntegration,
+	dedupeIntegration,
+	httpContextIntegration,
+	linkedErrorsIntegration,
+	replayIntegration,
+} from "@sentry/nextjs";
 import posthog from "posthog-js";
 
 import { env } from "~/env";
@@ -31,10 +40,16 @@ Sentry.init({
 			env.NEXT_PUBLIC_SENTRY_ORG,
 			sentryProjectId,
 		),
-		Sentry.replayIntegration({
+		replayIntegration({
 			// Additional Replay configuration goes in here, for example:
 			maskAllText: true,
 			blockAllMedia: true,
 		}),
+		browserProfilingIntegration(),
+		browserTracingIntegration(),
+		dedupeIntegration(),
+		httpContextIntegration(),
+		breadcrumbsIntegration(),
+		linkedErrorsIntegration(),
 	],
 });
