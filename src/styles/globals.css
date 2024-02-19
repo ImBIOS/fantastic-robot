@@ -58,3 +58,40 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* SECTION Start Hero Preview */
+@keyframes animate {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.shadow-neon {
+  @apply rounded-md;
+}
+
+.shadow-neon::before,
+.shadow-neon::after {
+  @apply rounded-md;
+  content: '';
+  position: absolute;
+  top: -1px; /* Tailwind doesn't support -4px out of the box, adjust as needed */
+  left: -1px; /* Adjusted to -1px for demonstration */
+  background: linear-gradient(45deg, hsl(234 56% 56%), blue, lightblue, darkblue, magenta, black, slateblue, midnightblue);
+  background-size: 400%;
+  width: calc(100% + 2px);
+  height: calc(100% + 2px);
+  z-index: -1;
+  animation: animate 25s linear infinite;
+}
+
+.shadow-neon::after {
+  filter: blur(25px);
+}
+/* SECTION END Hero Preview */

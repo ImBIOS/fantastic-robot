@@ -1,4 +1,4 @@
-import { type NextRequest, NextResponse } from "next/server";
+import { NextResponse, type NextRequest } from "next/server";
 
 import { ADMIN_HOSTNAMES, API_HOSTNAMES, APP_HOSTNAMES } from "./lib/constant";
 import {
@@ -25,30 +25,30 @@ export const config = {
 };
 
 export default function middleware(req: NextRequest) {
-	// TODO: Remove these console.log after development complete
-	console.log("MIDDLEWARE: STARTED");
+	// // TODO: Remove these console.log after development complete
+	// console.log("MIDDLEWARE: STARTED");
 	const { domain } = parse(req);
-	console.log("middleware: checking for domain", domain);
+	// console.log("middleware: checking for domain", domain);
 
 	// NOTE for App
 	if (APP_HOSTNAMES.has(domain)) {
-		console.log("middleware: checking for app");
+		// console.log("middleware: checking for app");
 		return auth(AppMiddleware);
 	}
 
 	// NOTE for API
 	if (API_HOSTNAMES.has(domain)) {
-		console.log("middleware: checking for api");
+		// console.log("middleware: checking for api");
 		return ApiMiddleware(req);
 	}
 
 	// NOTE for Admin
 	if (ADMIN_HOSTNAMES.has(domain)) {
-		console.log("middleware: checking for admin");
+		// console.log("middleware: checking for admin");
 		return auth(AdminMiddleware);
 	}
 
-	console.log("middleware: passing the response");
-	console.log("MIDDLEWARE: ENDED");
+	// console.log("middleware: passing the response");
+	// console.log("MIDDLEWARE: ENDED");
 	return NextResponse.next();
 }

@@ -8,7 +8,7 @@ import HeaderActionButton from "./header-action-button";
 const Header = () => {
 	return (
 		<header className="sticky top-0 z-10 border-b border-gray-400/10 bg-transparent backdrop-blur-xl">
-			<nav className="flex h-12 items-center justify-between px-4">
+			<nav className="mx-4 my-2 flex h-12 items-center justify-between">
 				<Link
 					href={"/"}
 					className="hidden items-center justify-between gap-2 md:flex"

@@ -3,14 +3,21 @@ import { Suspense } from "react";
 import { Badge } from "~/components/ui/badge";
 import { Button } from "~/components/ui/button";
 
-import { HomeActionButton } from "./home-action-button";
+import { ChevronRightIcon } from "@radix-ui/react-icons";
+import Link from "next/link";
+import HeroPreview from "./_components/hero-preview";
+import { HomeActionButton } from "./_components/home-action-button";
 
 const Page = () => {
 	return (
 		<main className="container mx-auto mt-8 flex flex-col items-center justify-center md:max-w-6xl">
 			<section className="flex min-h-screen flex-col items-center gap-4">
 				<div className="my-4 flex flex-col items-center">
-					<Badge variant="secondary">Launch Week 🎉 </Badge>
+					<Link href="#">
+						<Badge variant="secondary" className="px-2 py-1">
+							Closed Alpha Release 🎉 <ChevronRightIcon />
+						</Badge>
+					</Link>
 					<h1 className="my-4 inline-block bg-gradient-to-br from-white via-gray-300 to-gray-700 bg-clip-text p-4 text-center text-7xl font-semibold text-transparent">
 						Gitmoji <b>Academy</b> is a better way to learn gitmoji
 					</h1>
@@ -19,9 +26,9 @@ const Page = () => {
 							Meet the new AI-enabled learning for{" "}
 							<a
 								href="https://gitmoji.dev/"
-								className="text-red-500 no-underline"
+								className="font-bold text-primary no-underline"
 							>
-								gitmoji!
+								gitmoji
 							</a>
 						</p>
 					</div>
@@ -60,9 +67,7 @@ const Page = () => {
           </Link>
         </div>
       </div> */}
-				{/* TODO: @see https://linear.app/ */}
-				{/* TODO: @see https://codepen.io/raihanahmad/pen/qBZjrNW */}
-				<div>TODO: Dashboard Preview</div>
+				<HeroPreview />
 			</section>
 		</main>
 	);
