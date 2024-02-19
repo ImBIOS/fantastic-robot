@@ -3,7 +3,6 @@ import { Suspense } from "react";
 import { Badge } from "~/components/ui/badge";
 import { Button } from "~/components/ui/button";
 
-import { ChevronRightIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
 import HeroPreview from "./_components/hero-preview";
 import { HomeActionButton } from "./_components/home-action-button";
@@ -15,7 +14,7 @@ const Page = () => {
 				<div className="my-4 flex flex-col items-center">
 					<Link href="#">
 						<Badge variant="secondary" className="px-2 py-1">
-							Closed Alpha Release 🎉 <ChevronRightIcon />
+							Coming Soon 🚧
 						</Badge>
 					</Link>
 					<h1 className="my-4 inline-block bg-gradient-to-br from-white via-gray-300 to-gray-700 bg-clip-text p-4 text-center text-7xl font-semibold text-transparent">

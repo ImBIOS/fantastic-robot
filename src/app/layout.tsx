@@ -24,8 +24,8 @@ const defaultUrl = process.env.VERCEL_URL
 export const metadata: Metadata = {
 	metadataBase: new URL(defaultUrl),
 	title: "fantastic-robot",
-	description:
-		"Place to learn, practice, compete... and be a hero! in any field.",
+	// TODO: Write description
+	description: "TODO: DESCRIPTION_HERE",
 	icons: [
 		{ rel: "apple-touch-icon", sizes: "180x180", url: "/apple-touch-icon.png" },
 		{
@@ -60,7 +60,7 @@ export default async function RootLayout({
 				)}
 			>
 				<Providers session={session}>
-					<NextTopLoader color="#df4224" showSpinner={false} />
+					<NextTopLoader color="hsl(234 56% 56%)" showSpinner={false} />
 					<Header />
 					{children}
 					<Footer />

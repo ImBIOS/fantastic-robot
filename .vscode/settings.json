@@ -5,5 +5,7 @@
 		"source.organizeImports": "explicit",
 		"quickfix.biome": "explicit"
 	},
-	"editor.defaultFormatter": "biomejs.biome"
+	"editor.defaultFormatter": "biomejs.biome",
+	"typescript.tsdk": "node_modules/typescript/lib",
+	"typescript.enablePromptUseWorkspaceTsdk": true
 }
