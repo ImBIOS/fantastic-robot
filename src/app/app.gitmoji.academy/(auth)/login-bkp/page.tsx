@@ -3,7 +3,7 @@ import { redirect } from "next/navigation";
 import { DiscordIcon, GoogleIcon } from "~/components/icons";
 import { auth } from "~/server/auth";
 
-import { SigninButton } from "./signin-button";
+import { SigninButton } from "../signin-button";
 
 export default async function SignInPage() {
 	const session = await auth();

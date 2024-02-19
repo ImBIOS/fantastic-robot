@@ -44,16 +44,16 @@ export const env = createEnv({
 			.startsWith("https://")
 			.endsWith(".upstash.io"),
 		UPSTASH_REDIS_REST_TOKEN: z.string(),
-		MIDTRANS_SERVER_KEY: z.string().refine((val) => {
-			const isProduction = process.env.VERCEL_ENV === "production";
-			const prefix = isProduction ? "Mid-server-" : "SB-Mid-server-";
-			return val.startsWith(prefix);
-		}, "MIDTRANS_SERVER_KEY must start with the appropriate prefix depending on the production status"),
-		MIDTRANS_CLIENT_KEY: z.string().refine((val) => {
-			const isProduction = process.env.VERCEL_ENV === "production";
-			const prefix = isProduction ? "Mid-" : "SB-Mid-";
-			return val.startsWith(prefix);
-		}, "MIDTRANS_CLIENT_KEY must start with the appropriate prefix depending on the production status"),
+		// MIDTRANS_SERVER_KEY: z.string().refine((val) => {
+		// 	const isProduction = process.env.VERCEL_ENV === "production";
+		// 	const prefix = isProduction ? "Mid-server-" : "SB-Mid-server-";
+		// 	return val.startsWith(prefix);
+		// }, "MIDTRANS_SERVER_KEY must start with the appropriate prefix depending on the production status"),
+		// MIDTRANS_CLIENT_KEY: z.string().refine((val) => {
+		// 	const isProduction = process.env.VERCEL_ENV === "production";
+		// 	const prefix = isProduction ? "Mid-" : "SB-Mid-";
+		// 	return val.startsWith(prefix);
+		// }, "MIDTRANS_CLIENT_KEY must start with the appropriate prefix depending on the production status"),
 		RESEND_API_KEY: z.string().startsWith("re_"),
 		SENTRY_AUTH_TOKEN: z.string().startsWith("sntrys_"),
 		SENTRY_PROJECT: z.string(),
@@ -97,8 +97,8 @@ export const env = createEnv({
 		UPSTASH_REDIS_REST_TOKEN: process.env.UPSTASH_REDIS_REST_TOKEN,
 		NEXT_PUBLIC_POSTHOG_KEY: process.env.NEXT_PUBLIC_POSTHOG_KEY,
 		NEXT_PUBLIC_POSTHOG_HOST: process.env.NEXT_PUBLIC_POSTHOG_HOST,
-		MIDTRANS_SERVER_KEY: process.env.MIDTRANS_SERVER_KEY,
-		MIDTRANS_CLIENT_KEY: process.env.MIDTRANS_CLIENT_KEY,
+		// MIDTRANS_SERVER_KEY: process.env.MIDTRANS_SERVER_KEY,
+		// MIDTRANS_CLIENT_KEY: process.env.MIDTRANS_CLIENT_KEY,
 		RESEND_API_KEY: process.env.RESEND_API_KEY,
 		SENTRY_AUTH_TOKEN: process.env.SENTRY_AUTH_TOKEN,
 		NEXT_PUBLIC_SENTRY_DSN: process.env.NEXT_PUBLIC_SENTRY_DSN,

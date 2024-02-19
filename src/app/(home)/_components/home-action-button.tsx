@@ -4,7 +4,7 @@ import { DiscordIcon } from "~/components/icons";
 import { Button } from "~/components/ui/button";
 import { auth } from "~/server/auth";
 
-import { SigninButton } from "../../app.gitmoji.academy/(auth)/login-bkp/signin-button";
+import { SigninButton } from "../../app.gitmoji.academy/(auth)/signin-button";
 
 export const HomeActionButton = async () => {
 	const session = await auth();
