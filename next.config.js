@@ -60,7 +60,7 @@ const config = withSentryConfig(
 		// https://github.com/getsentry/sentry-webpack-plugin#options
 
 		// Suppresses source map uploading logs during build
-		silent: true,
+		silent: false,
 		org: env.NEXT_PUBLIC_SENTRY_ORG,
 		project: env.SENTRY_PROJECT,
 	},

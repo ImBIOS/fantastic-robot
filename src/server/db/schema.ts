@@ -1,5 +1,6 @@
 import { relations, sql } from "drizzle-orm";
 import {
+	bigint,
 	index,
 	int,
 	mysqlTableCreator,
@@ -96,6 +97,51 @@ export const verificationTokens = mysqlTable(
 	}),
 );
 // SECTION - Auth.js END
+
+// SECTION - BoxyHQ SAML SSO START
+export const jacksonIndex = mysqlTable(
+	"jackson_index",
+	{
+		id: int("id").primaryKey().autoincrement(),
+		key: varchar("key", { length: 250 }).notNull(),
+		storeKey: varchar("storeKey", { length: 250 }).notNull(),
+	},
+	(table) => ({
+		keyIdx: index("_jackson_index_key").on(table.key),
+		storeKeyIdx: index("_jackson_index_key_store").on(
+			table.key,
+			table.storeKey,
+		),
+	}),
+);
+
+export const jacksonStore = mysqlTable(
+	"jackson_store",
+	{
+		key: varchar("key", { length: 250 }).notNull().primaryKey(),
+		value: text("value").notNull(),
+		iv: varchar("iv", { length: 64 }),
+		tag: varchar("tag", { length: 64 }),
+		namespace: varchar("namespace", { length: 64 }),
+		createdAt: timestamp("createdAt").defaultNow().notNull(),
+		modifiedAt: timestamp("modifiedAt").onUpdateNow().defaultNow().notNull(),
+	},
+	(table) => ({
+		namespaceIdx: index("_jackson_store_namespace").on(table.namespace),
+	}),
+);
+
+export const jacksonTtl = mysqlTable(
+	"jackson_ttl",
+	{
+		key: varchar("key", { length: 250 }).notNull().primaryKey(),
+		expiresAt: bigint("expiresAt", { mode: "bigint" }).notNull(),
+	},
+	(table) => ({
+		expiresAtIdx: index("_jackson_ttl_expires_at").on(table.expiresAt),
+	}),
+);
+// SECTION - BoxyHQ SAML SSO END
 
 export const points = mysqlTable("point", {
 	id: varchar("id", { length: 255 }).notNull().primaryKey(),
