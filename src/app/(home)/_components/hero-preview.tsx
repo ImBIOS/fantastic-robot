@@ -9,7 +9,7 @@ const HeroPreview = () => {
 	);
 
 	return (
-		<section className="shadow-neon relative mx-auto mb-0 mt-52 grid h-[500px] w-11/12 cursor-default place-items-center bg-gray-800 py-8 text-8xl lg:w-3/4 lg:text-9xl">
+		<section className="shadow-neon relative mx-auto mb-0 mt-52 grid h-[500px] w-11/12 cursor-default place-items-center rounded-md bg-gray-800 py-8 text-8xl lg:w-3/4 lg:text-9xl">
 			<div className="relative flex w-full overflow-x-hidden">
 				<div className="animate-marquee whitespace-nowrap py-12">
 					{firstHalfGitmojis.map((gitmoji) => (

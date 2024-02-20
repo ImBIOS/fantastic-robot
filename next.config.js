@@ -63,6 +63,7 @@ const config = withSentryConfig(
 		silent: false,
 		org: env.NEXT_PUBLIC_SENTRY_ORG,
 		project: env.SENTRY_PROJECT,
+		dryRun: process.env.VERCEL !== "1",
 	},
 	{
 		// For all available options, see:

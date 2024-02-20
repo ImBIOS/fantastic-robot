@@ -12,17 +12,19 @@ const Page = () => {
 		<main className="container mx-auto my-8 flex flex-col items-center justify-center md:max-w-6xl">
 			<section className="flex min-h-screen flex-col items-center gap-4">
 				<div className="my-4 flex flex-col items-center">
-					<Link href="#">
-						<Badge variant="secondary" className="px-2 py-1">
-							Coming Soon 🚧
-						</Badge>
-					</Link>
-					<h1 className="my-4 inline-block bg-gradient-to-br from-white via-gray-300 to-gray-700 bg-clip-text p-4 text-center text-7xl font-semibold text-transparent">
-						Gitmoji <b>Academy</b> is a better way to learn gitmoji
-					</h1>
-					<div>
+					<div className="flex animate-fade-down flex-col items-center animate-duration-[1500ms] animate-ease-in-out">
+						<Link href="#">
+							<Badge variant="secondary" className="px-2 py-1">
+								Coming Soon 🚧
+							</Badge>
+						</Link>
+						<h1 className="my-4 inline-block bg-gradient-to-br from-white via-gray-300 to-gray-700 bg-clip-text p-4 text-center text-7xl font-semibold text-transparent">
+							Gitmoji <b>Academy</b> is a better way to learn gitmoji
+						</h1>
+					</div>
+					<div className="animate-fade-down animate-delay-500 animate-duration-[1500ms] animate-ease-in-out">
 						<p className="text-2xl text-gray-400">
-							Meet the new AI-enabled learning for{" "}
+							Meet the new AI-assisted learning for{" "}
 							<a
 								href="https://gitmoji.dev/"
 								className="font-bold text-primary no-underline"
@@ -32,7 +34,7 @@ const Page = () => {
 						</p>
 					</div>
 				</div>
-				<div className="flex w-1/2 flex-col items-center justify-evenly gap-8">
+				<div className="flex w-1/2 animate-fade-down flex-col items-center justify-evenly gap-8 animate-delay-1000 animate-duration-[1500ms] animate-ease-in-out">
 					{/* <a
           href="https://github.com/ImBIOS/fantastic-robot"
           className="inline-block cursor-pointer rounded-lg bg-yellow-900 px-4 py-3 font-semibold text-white shadow-md hover:translate-y-0.5 hover:shadow-lg hover:shadow-white"
