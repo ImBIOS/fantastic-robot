@@ -41,7 +41,7 @@
 		"@upstash/ratelimit": "^1.0.1",
 		"@upstash/redis": "^1.28.4",
 		"@vercel/edge": "^1.1.1",
-		"ai": "^2.2.35",
+		"ai": "^3.0.8",
 		"class-variance-authority": "^0.7.0",
 		"clsx": "^2.1.0",
 		"drizzle-orm": "^0.29.3",
