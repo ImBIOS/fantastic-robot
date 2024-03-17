@@ -1,5 +1,5 @@
 import { clsx, type ClassValue } from "clsx";
-import { type Metadata } from "next";
+import type { Metadata } from "next";
 import { twMerge } from "tailwind-merge";
 import { env } from "~/env";
 import { HOME_DOMAIN } from "./constant";

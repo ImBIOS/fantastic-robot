@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { type NextAuthRequest } from "node_modules/next-auth/lib";
+import type { NextAuthRequest } from "node_modules/next-auth/lib";
 
 import { parse } from "./_utils";
 

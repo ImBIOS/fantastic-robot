@@ -3,11 +3,13 @@ import type { User } from "next-auth";
 import {
 	DropdownMenu,
 	DropdownMenuContent,
+	DropdownMenuItem,
 	DropdownMenuSeparator,
 	DropdownMenuTrigger,
 } from "~/components/ui/dropdown-menu";
 import { signOut } from "~/server/auth";
 
+import Link from "next/link";
 import SignOutButton from "./sign-out-button";
 import { UserAvatar } from "./user-avatar";
 
@@ -32,6 +34,9 @@ export function UserNav({ user: { name, email } }: Props) {
 						)}
 					</div>
 				</div>
+				<Link href="/app.gitmoji.academy">
+					<DropdownMenuItem>Dashboard</DropdownMenuItem>
+				</Link>
 				<DropdownMenuSeparator />
 				<form
 					action={async () => {

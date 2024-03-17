@@ -33,15 +33,10 @@ const opts: JacksonOption = {
 };
 
 declare global {
-	// biome-ignore lint/style/noVar: <explanation>
 	var connectionController: IConnectionAPIController | undefined;
-	// biome-ignore lint/style/noVar: <explanation>
 	var apiController: IConnectionAPIController | undefined;
-	// biome-ignore lint/style/noVar: <explanation>
 	var oauthController: IOAuthController | undefined;
-	// biome-ignore lint/style/noVar: <explanation>
 	var ssoSPConfig: ISPSSOConfig | undefined;
-	// biome-ignore lint/style/noVar: <explanation>
 	var directorySyncController: IDirectorySyncController | undefined;
 }
 

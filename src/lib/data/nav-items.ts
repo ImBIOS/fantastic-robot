@@ -1,6 +1,6 @@
 import { DashboardIcon } from "@radix-ui/react-icons";
 
-import { type NavItem } from "~/lib/types";
+import type { NavItem } from "~/lib/types";
 
 export const NavItems: NavItem[] = [
 	{

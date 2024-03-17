@@ -9,7 +9,7 @@ import {
 	timestamp,
 	varchar,
 } from "drizzle-orm/mysql-core";
-import { type Account } from "next-auth";
+import type { Account } from "next-auth";
 
 /**
  * This is an example of how to use the multi-project schema feature of Drizzle ORM. Use the same

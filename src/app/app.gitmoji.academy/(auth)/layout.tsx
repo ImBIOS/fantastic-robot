@@ -1,4 +1,4 @@
-import { type ReactNode } from "react";
+import type { ReactNode } from "react";
 import { Background } from "~/components/background";
 
 export const runtime = "edge";

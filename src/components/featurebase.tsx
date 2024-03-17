@@ -1,6 +1,6 @@
 "use client";
 
-import { type Session } from "next-auth";
+import type { Session } from "next-auth";
 import Script from "next/script";
 import { useEffect } from "react";
 

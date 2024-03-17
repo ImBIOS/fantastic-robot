@@ -1,4 +1,4 @@
-import { type OAuthReq } from "@boxyhq/saml-jackson";
+import type { OAuthReq } from "@boxyhq/saml-jackson";
 import { NextResponse } from "next/server";
 import jackson from "~/lib/jackson";
 import { getSearchParams } from "~/lib/utils";

@@ -1,6 +1,6 @@
 "use client";
 
-import { type Session } from "next-auth";
+import type { Session } from "next-auth";
 import { SessionProvider, useSession } from "next-auth/react";
 import { ThemeProvider } from "next-themes";
 import posthog from "posthog-js";
@@ -43,7 +43,12 @@ type Props = {
 
 const Providers = ({ children, session }: Props) => {
 	return (
-		<ThemeProvider enableSystem defaultTheme="system" attribute="class">
+		<ThemeProvider
+			enableSystem
+			//  defaultTheme="system"
+			defaultTheme="dark"
+			attribute="class"
+		>
 			<SessionProvider session={session}>
 				<TRPCReactProvider>
 					<PostHogProviderWithSession>

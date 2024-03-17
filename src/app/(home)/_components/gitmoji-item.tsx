@@ -1,5 +1,5 @@
 "use client";
-import { type Gitmoji } from "gitmojis";
+import type { Gitmoji } from "gitmojis";
 import {
 	Tooltip,
 	TooltipContent,

@@ -1,7 +1,7 @@
 "use client";
 
-import { type OAuthProviderType } from "next-auth/providers";
-import React, { useState } from "react";
+import type { OAuthProviderType } from "next-auth/providers";
+import { useState } from "react";
 
 import { SpinnerIcon } from "~/components/icons";
 import { Button, type ButtonProps } from "~/components/ui/button";

@@ -1,7 +1,7 @@
 import "~/styles/globals.css";
 
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import { type Metadata } from "next";
+import type { Metadata } from "next";
 import NextTopLoader from "nextjs-toploader";
 
 import { TailwindIndicator } from "~/components/tailwind-indicator";

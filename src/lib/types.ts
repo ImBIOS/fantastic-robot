@@ -1,6 +1,6 @@
-import { type IconProps } from "@radix-ui/react-icons/dist/types";
-import { type Route } from "next";
-import { type ForwardRefExoticComponent } from "react";
+import type { IconProps } from "@radix-ui/react-icons/dist/types";
+import type { Route } from "next";
+import type { ForwardRefExoticComponent } from "react";
 
 export type NavItem = {
 	title: string;

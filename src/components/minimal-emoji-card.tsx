@@ -1,4 +1,4 @@
-import { type Gitmoji } from "gitmojis";
+import type { Gitmoji } from "gitmojis";
 
 import { colors } from "~/lib/data/colors";
 import { cn } from "~/lib/utils";

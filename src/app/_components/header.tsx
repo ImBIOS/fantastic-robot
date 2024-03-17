@@ -1,8 +1,5 @@
 import Link from "next/link";
 import { Suspense } from "react";
-
-import ThemeSelector from "~/components/theme-selector";
-
 import Logo from "~/components/logo";
 import HeaderActionButton from "./header-action-button";
 
@@ -20,7 +17,7 @@ const Header = () => {
 				</Link>
 
 				<div className="flex items-center gap-2">
-					<ThemeSelector />
+					{/* <ThemeSelector /> */}
 
 					<Suspense
 						fallback={<div className="size-8 animate-pulse rounded-full" />}

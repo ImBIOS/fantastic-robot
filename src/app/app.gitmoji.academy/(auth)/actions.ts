@@ -1,6 +1,6 @@
 "use server";
 
-import { type OAuthProviderType } from "next-auth/providers";
+import type { OAuthProviderType } from "next-auth/providers";
 
 import { signIn } from "~/server/auth";
 

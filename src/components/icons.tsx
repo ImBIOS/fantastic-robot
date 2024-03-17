@@ -1,6 +1,6 @@
 "use client";
 
-import { type JSX, type SVGProps } from "react";
+import type { JSX, SVGProps } from "react";
 import { cn } from "~/lib/utils";
 
 function DiscordIcon({

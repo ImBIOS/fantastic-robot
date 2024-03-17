@@ -1,4 +1,4 @@
-import { type AvatarProps } from "@radix-ui/react-avatar";
+import type { AvatarProps } from "@radix-ui/react-avatar";
 import { PersonIcon } from "@radix-ui/react-icons";
 import { Suspense } from "react";
 

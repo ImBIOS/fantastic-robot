@@ -14,7 +14,7 @@ const HeaderActionButton = async () => {
 				<form
 					action={async () => {
 						"use server";
-						await signIn("discord");
+						await signIn("discord", { redirectTo: "/app.gitmoji.academy" });
 					}}
 				>
 					<HeaderLoginButton />

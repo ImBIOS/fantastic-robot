@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 
 import { buttonVariants } from "~/components/ui/button";
 import { useSidebar } from "~/lib/hooks/use-sidebar";
-import { type NavItem } from "~/lib/types";
+import type { NavItem } from "~/lib/types";
 import { cn } from "~/lib/utils";
 
 import {
